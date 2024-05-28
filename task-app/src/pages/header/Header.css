@@ -1,0 +1,90 @@
+.containerNotic{
+    background-color: rgb(255, 255, 255);
+    padding: 10px 60px;
+    margin: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.container{
+    padding:0;
+    margin: 0;
+    
+}
+.navbar {
+  margin: 0;
+  padding: 0;
+}
+.custom-nav-link {
+  color: #000000 !important; /* Ganti dengan warna yang Anda inginkan */
+  align-self: center;
+  margin-right: 5px;
+}
+.custom-nav-link a {
+  color: #000000 !important; /* Ganti dengan warna yang Anda inginkan */
+}
+
+.custom-nav-link:hover {
+  color: #57A9CF !important; /* Warna saat dihover */
+  font-weight: bold;
+  
+}
+.custom-nav-link a:hover {
+  color: #57A9CF !important; /* Warna saat dihover */
+  font-weight: bold;
+}
+
+
+.navbar-brand, .navbar-nav, .nav-link, .navbar-collapse {
+  margin: 0;
+
+}
+.navbar-nav .dropdown-item.custom-nav-link {
+  color: #000000 !important; /* Ganti dengan warna yang Anda inginkan */
+}
+
+.navbar-nav .dropdown-item.custom-nav-link:hover {
+  color: #57A9CF !important; /* Warna saat dihover */
+}
+
+/* Kustomisasi warna teks pada item dropdown */
+.navbar-nav .dropdown-menu .dropdown-item {
+  color: #000000 !important; /* Ganti dengan warna yang Anda inginkan */
+}
+
+.navbar-nav .dropdown-menu .dropdown-item:hover {
+  color: #57A9CF !important; /* Warna saat dihover */
+}
+
+/* Kustomisasi warna teks pada judul NavDropdown */
+.navbar-nav .nav-link.dropdown-toggle.custom-nav-link {
+  color: #000000 !important; /* Ganti dengan warna yang Anda inginkan */
+}
+
+/* Kustomisasi warna teks pada judul NavDropdown sebelum dropdown diklik */
+.navbar-nav .nav-link.dropdown-toggle.custom-nav-link:focus {
+  color: #000000 !important; /* Ganti dengan warna yang Anda inginkan */
+}
+
+.custom-login-link {
+    background-color: #57A9CF;
+    border-radius: 5px;
+    color: white !important;
+    padding: 5px 10px !important; /* Atur padding untuk top/bottom dan left/right */
+    display: inline-block; /* Mengubah elemen menjadi inline-block */
+    text-decoration: none; /* Untuk menghapus underline pada tautan */
+    max-width: none !important; /* Hapus batas lebar maksimum */
+    align-self: center;
+    box-sizing: border-box; /* Pastikan padding dimasukkan ke dalam lebar elemen */
+}
+
+
+.custom-login-link a{
+    padding-left: 0px;
+}
+.custom-login-link:hover {
+    background-color:  #4483a1;
+    
+}
+
+.content{
+  flex:1
+}
