@@ -12,7 +12,7 @@ import "./sidebar.css";
 import profilePicture from "../../assets/restya.jpeg"; // import gambar profil
 import logo from "../../assets/letter-n.png";
 
-const Sidebar = ({ userEmail, signOutUser }) => {
+const Sidebar = ({ userEmail }) => {
   return (
     <div
       className="sidebar-container"
@@ -70,16 +70,6 @@ const Sidebar = ({ userEmail, signOutUser }) => {
             </NavLink>
           </CDBSidebarMenu>
         </CDBSidebarContent>
-
-        <CDBSidebarFooter style={{ textAlign: "center" }}>
-          <div className="sidebar-btn-wrapper" style={{ padding: "20px 5px" }}>
-            {userEmail && (
-              <>
-                <button onClick={signOutUser} className="btn-logout">Logout</button>
-              </>
-            )}
-          </div>
-        </CDBSidebarFooter>
       </CDBSidebar>
     </div>
   );
