@@ -18,9 +18,9 @@ function App() {
           <Route index element={<Home />} />
           <Route path="AboutUs" element={<AboutUs />} />
           <Route path="ContactUs" element={<ContactUs />} />
-          <Route path="login" element={<Login />} />
         </Route>
-        // Di App.jsx
+        <Route path="login" element={<Login />} />
+        {/* Di App.jsx */}
         <Route path="/DashboardUser" element={<DashboardUser />}>
           <Route
             index
