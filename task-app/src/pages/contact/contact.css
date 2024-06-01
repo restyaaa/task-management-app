@@ -1,0 +1,100 @@
+.contact-container {
+    background: linear-gradient(to right, #5cadd1, #86cade);
+    padding: 4rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .contact-form {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 2.5rem;
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+    position: relative;
+    z-index: 2; /* Ensure form is above the wave */
+    margin: 5rem 0; /* Adjust margin to create space between waves */
+  }
+  
+  .contact-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .form-control {
+    border-radius: 20px;
+    border: 2px solid #5cadd1;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    font-size: 1.2rem;
+  }
+  
+  .form-control::placeholder {
+    font-weight: bold;
+    color: #5cadd1;
+  }
+  
+  .btn-primary {
+    background-color: #5cadd1;
+    border-color: #5cadd1;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border-radius: 20px;
+    padding: 0.75rem 2rem;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+  
+  .btn-primary:hover {
+    background-color: #4690a9;
+    border-color: #4690a9;
+    transform: scale(1.05);
+  }
+  
+  .dark-mode .contact-container {
+    background: linear-gradient(to right, #333, #222);
+    color: white;
+  }
+  
+  .dark-mode .contact-form {
+    background-color: #222;
+  }
+  
+  .dark-mode .form-control {
+    background-color: #222;
+    color: white;
+    border-color: #5cadd1;
+  }
+  
+  .dark-mode .btn-primary {
+    background-color: #5cadd1;
+    border-color: #5cadd1;
+  }
+  
+  .dark-mode .btn-primary:hover {
+    background-color: #4690a9;
+    border-color: #4690a9;
+  }
+  
+  .dark-mode .contact-title {
+    color: white;
+  }
+  
+  .wave-background {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    left: 0;
+    z-index: 1; /* Ensure waves are behind the form */
+  }
+  
+  .top-wave {
+    top: 0;
+  }
+  
+  .bottom-wave {
+    bottom: 0;
+  }
+  

@@ -6,6 +6,7 @@ import Home from "./pages/home/Home";
 import AboutUs from "./pages/about/About";
 import ContactUs from "./pages/contact/Contact";
 import Login from "./pages/login/login";
+import Register from "./pages/register/register";
 import DashboardUser from "./pages/dahsboardUser/DashboardUser";
 import Sidebar from "./pages/sidebar/Sidebar";
 import Settingan from "./pages/settingan/Settingan";
@@ -20,6 +21,7 @@ function App() {
           <Route path="ContactUs" element={<ContactUs />} />
         </Route>
         <Route path="login" element={<Login />} />
+        <Route path="register" element={<Register />} />
         {/* Di App.jsx */}
         <Route path="/DashboardUser" element={<DashboardUser />}>
           <Route
