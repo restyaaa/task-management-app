@@ -13,28 +13,28 @@ const Home = () => {
     <Container fluid className="home-container">
       <Container className="intro-section">
         <Row className="align-items-center">
-          <Col md={6} className="text-container">
+          <Col md={6} className="text-container-home">
             <h1 className="title-hero fw-bold">Get Noticed With Notic</h1>
             <p className="sub-title">
               Elevate Your Productivity and Stay Ahead
             </p>
-            <p>
+            <p className="desc-home">
               With Notic, you'll not only manage your tasks more efficiently but
               also significantly boost your productivity. This app is designed
               to help you stay organized, ensure every task is completed on
               time, and keep you ahead of the game.
             </p>
             <Form className="email-signup-form">
-              <Button type="submit" className="btn-sign-up">
+              <Button type="submit" className="btn-sign-up-home">
                 Sign up - it's free!
               </Button>
             </Form>
           </Col>
-          <Col md={6} className="image-container">
+          <Col md={6} className="image-container-home">
             <img
               src={noticImage} // Ganti dengan path gambar yang sesuai
               alt="Notic Illustration"
-              className="img-fluid"
+              className="img-fluid-home"
             />
           </Col>
         </Row>
@@ -47,7 +47,7 @@ const Home = () => {
       <Container fluid className="why-notic-section">
         <Row className="text-center">
           <Col>
-            <h2 className="fw-bold mb-xl-5">Why Notic?</h2>
+            <h2 className="fw-bold mb-xl-5 h2-home">Why Notic?</h2>
           </Col>
         </Row>
         <Row className="why-notic-topic  text-center">

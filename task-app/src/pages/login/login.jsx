@@ -5,6 +5,7 @@ import { Card, Button, Form } from 'react-bootstrap';
 import { FaArrowLeft } from 'react-icons/fa';
 import './login.css';
 import NoticLogo from '../../assets/letter-n.png';
+import { Link } from 'react-router-dom'; // Import Link if using react-router-dom
 
 const Login = () => {
   return (
@@ -23,8 +24,9 @@ const Login = () => {
         <Card className="login-card mt-2">
           <Card.Body>
             <div className="back-to-landing mb-3">
-              <FaArrowLeft className="me-2" />
-              <a href="/" className="text-decoration-none">Back</a>
+              <Link to="/" className="text-decoration-none"> 
+                <FaArrowLeft className="me-2" />
+              </Link>
             </div>
             <Card.Title className="login-title text-center mb-4">Login</Card.Title>
             <Form>

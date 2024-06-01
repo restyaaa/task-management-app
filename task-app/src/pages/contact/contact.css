@@ -12,9 +12,9 @@
     padding: 2.5rem;
     transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
     position: relative;
-    z-index: 2; /* Ensure form is above the wave */
-    margin: 5rem 0; /* Adjust margin to create space between waves */
-}
+    z-index: 2;
+    margin: 5rem 0; 
+  }
   
   .contact-title {
     font-size: 2.5rem;
@@ -24,7 +24,7 @@
     margin-bottom: 2rem;
   }
   
-  .form-control {
+  .form-control-contact {
     border-radius: 20px;
     border: 2px solid #5cadd1;
     margin-bottom: 1.5rem;
@@ -37,7 +37,7 @@
     color: #5cadd1;
   }
   
-  .btn-primary {
+  .btn-contact {
     background-color: #5cadd1;
     border-color: #5cadd1;
     font-weight: bold;
@@ -47,7 +47,7 @@
     transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
   }
   
-  .btn-primary:hover {
+  .btn-contact:hover {
     background-color: #4690a9;
     border-color: #4690a9;
     transform: scale(1.05);
@@ -68,12 +68,12 @@
     border-color: #5cadd1;
   }
   
-  .dark-mode .btn-primary {
+  .dark-mode .btn-contact {
     background-color: #5cadd1;
     border-color: #5cadd1;
   }
   
-  .dark-mode .btn-primary:hover {
+  .dark-mode .btn-contact:hover {
     background-color: #4690a9;
     border-color: #4690a9;
   }
@@ -87,7 +87,7 @@
     height: auto;
     position: absolute;
     left: 0;
-    z-index: 1; /* Ensure waves are behind the form */
+    z-index: 1;
   }
   
   .top-wave {
