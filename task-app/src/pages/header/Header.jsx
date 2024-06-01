@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Outlet, NavLink } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
@@ -10,16 +10,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
 
 const Header = () => {
-   const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
 
-   const toggleDarkMode = () => {
-     setDarkMode(!darkMode);
-     if (darkMode) {
-       document.body.classList.remove("dark-mode");
-     } else {
-       document.body.classList.add("dark-mode");
-     }
-   };
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+    if (darkMode) {
+      document.body.classList.remove("dark-mode");
+    } else {
+      document.body.classList.add("dark-mode");
+    }
+  };
 
   return (
     <div>
@@ -85,6 +85,34 @@ const Header = () => {
       <div className="content">
         <Outlet />
       </div>
+
+      <footer className="footer">
+        <div className="footer-container">
+          <div className="footer-section">
+            <h4 className="fw-bolder">Tentang Kami</h4>
+            <ul>
+              <li><a href="#faq">FAQ</a></li>
+              <li><a href="#help">Bantuan</a></li>
+              <li><a href="#social">Sosial Media</a></li>
+            </ul>
+          </div>
+          <div className="footer-section">
+            <h4 className="fw-bolder">Hubungi Kami</h4>
+            <ul>
+              <li><a href="#privacy">Kebijakan Privasi</a></li>
+              <li><a href="#security">Keamanan & Privasi</a></li>
+              <li><a href="#terms">Syarat dan Ketentuan</a></li>
+            </ul>
+          </div>
+          <div className="footer-section">
+            <h4 className="fw-bolder">Alamat</h4>
+            <address>
+              Kota Bandung, Jawa Barat, Indonesia
+            </address>
+            <p>&copy; 2024 Hotgens Indonesia.</p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };

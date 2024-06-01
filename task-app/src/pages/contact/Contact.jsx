@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import "./contact.css"; // Custom styling
@@ -22,17 +23,17 @@ const ContactUs = () => {
           <Form>
             <Form.Group controlId="formName">
               <Form.Label>Your Name</Form.Label>
-              <Form.Control type="text" placeholder="Enter your name" required />
+              <Form.Control className="form-control-contact" type="text" placeholder="Enter your name" required />
             </Form.Group>
             <Form.Group controlId="formEmail">
               <Form.Label>Email Address</Form.Label>
-              <Form.Control type="email" placeholder="Enter your email" required />
+              <Form.Control className="form-control-contact"  type="email" placeholder="Enter your email" required />
             </Form.Group>
             <Form.Group controlId="formMessage">
               <Form.Label>Message</Form.Label>
-              <Form.Control as="textarea" rows={4} placeholder="Enter your message" required />
+              <Form.Control className="form-control-contact"  as="textarea" rows={4} placeholder="Enter your message" required />
             </Form.Group>
-            <Button variant="primary" type="submit" block>
+            <Button className="btn-contact" type="submit" block>
               Send Message
             </Button>
           </Form>

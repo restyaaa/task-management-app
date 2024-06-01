@@ -99,12 +99,11 @@
     background-color: #57A9CF;
     border-radius: 5px;
     color: white !important;
-    padding: 5px 10px !important; /* Atur padding untuk top/bottom dan left/right */
-    display: inline-block; /* Mengubah elemen menjadi inline-block */
-    text-decoration: none; /* Untuk menghapus underline pada tautan */
-    max-width: none !important; /* Hapus batas lebar maksimum */
-    align-self: center;
-    box-sizing: border-box; /* Pastikan padding dimasukkan ke dalam lebar elemen */
+    padding: 5px 10px !important;
+    display: inline-block; 
+    text-decoration: none;
+    max-width: none !important;
+    box-sizing: border-box; 
 }
 
 
@@ -118,6 +117,59 @@
 
 .content{
   flex:1
+}
+
+.footer {
+  background-color: #57A9CF;
+  color: white;
+  padding: 20px 0;
+  text-align: left;
+  width: 100%;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-section {
+  flex: 1;
+  padding: 0 20px;
+}
+
+.footer-section h4 {
+  margin-bottom: 15px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+  text-decoration: underline;
+}
+
+.footer-section address,
+.footer-section p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.content {
+  flex: 1;
 }
 
 /* DARK MODE */

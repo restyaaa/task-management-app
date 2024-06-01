@@ -3,9 +3,7 @@
   padding: 0;
 margin-top: 0px;
 }
-.container{
-  margin-top: 0px;
-}
+
 .intro-section {
   padding: 0;
   display: flex;
@@ -16,26 +14,35 @@ margin-top: 0px;
   margin-bottom: 10px;
 }
 .title-hero{
-  font-size: 70px;
+  font-size: 5rem;
+  margin-bottom: 20px;
+  margin-left: 5%;
 }
+
 .sub-title{
   color: #57A9CF;
   font-weight: bold;
   font-size: 20px;
+  margin-left: 5%;
 }
+
+.desc-home {
+  margin-bottom: 20px;
+  margin-left: 5%;
+}
+
 .why-notic-section {
   background-color: #5DADD2;
   padding: 50px 15px;
   color: white;
 }
 
-
-
 .topic-icon {
   width: 50px;
   margin-bottom: 20px;
 }
-.img-fluid {
+
+.img-fluid-home {
   max-width: 100%;
   height: auto;
 }
@@ -43,51 +50,35 @@ margin-top: 0px;
 .email-signup-form {
   display: flex;
   gap: 10px;
+  margin-left: 5%;
 }
 
-.text-container {
+.text-container-home {
   text-align: left;
   
 }
-.text-container h1,p,button,form {
-  margin-left: 5%;
-  
-}
 
-.image-container {
+.image-container-home {
   display: flex;
   justify-content: flex-end;
   margin: 0 !important;
   padding: 0 !important;
  
 }
-.image-container img {
+.image-container-home img {
   margin-left: 10%;
 }
-.btn-sign-up{
+.btn-sign-up-home{
   background-color: #57A9CF;
   border: none;
   padding: 10px 20px;
-  margin:0;
+  margin: 0;
 }
-.btn-sign-up:hover{
+.btn-sign-up-home:hover{
   background-color: #4788a7;
 }
-h1 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-}
 
-h2 {
+.h2-home {
   font-size: 2rem;
   margin-bottom: 30px;
-}
-
-h3 {
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-}
-
-p {
-  margin-bottom: 20px;
 }
