@@ -5,7 +5,7 @@
     overflow: hidden;
   }
   
-  .contact-form {
+.contact-form {
     background: white;
     border-radius: 20px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
@@ -14,7 +14,7 @@
     position: relative;
     z-index: 2; /* Ensure form is above the wave */
     margin: 5rem 0; /* Adjust margin to create space between waves */
-  }
+}
   
   .contact-title {
     font-size: 2.5rem;
