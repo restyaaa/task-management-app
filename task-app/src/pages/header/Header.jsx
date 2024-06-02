@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Outlet, NavLink } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
@@ -10,29 +10,37 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
 
 const Header = () => {
-  const [darkMode, setDarkMode] = useState(false);
+   const [darkMode, setDarkMode] = useState(() => {
+     const storedMode = localStorage.getItem("darkMode");
+     return storedMode ? JSON.parse(storedMode) : false;
+   });
 
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-    if (darkMode) {
-      document.body.classList.remove("dark-mode");
-    } else {
-      document.body.classList.add("dark-mode");
-    }
-  };
+   useEffect(() => {
+     if (darkMode) {
+       document.body.classList.add("dark-mode");
+     } else {
+       document.body.classList.remove("dark-mode");
+     }
+     localStorage.setItem("darkMode", JSON.stringify(darkMode));
+   }, [darkMode]);
+
+   const toggleDarkMode = () => {
+     setDarkMode(!darkMode);
+   };
 
   return (
     <div>
       <Navbar expand="lg" className="bg-body-tertiary fixed-top">
         <Container fluid className="containerNotic">
           <Container className="container-head">
-            <Navbar.Brand>
+            <Navbar.Brand href="/">
               <img
                 src={logo}
                 width="30"
                 height="30"
                 className="d-inline-block align-top"
                 alt="Notic logo"
+                
               />
               <span className="fw-bold">Notic</span>
             </Navbar.Brand>

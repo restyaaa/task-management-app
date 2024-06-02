@@ -15,7 +15,8 @@
 .custom-login-link {
   color: #000;
   text-decoration: none;
-  
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .custom-nav-link.active,
@@ -64,10 +65,6 @@
   
 }
 
-.navbar-brand, .navbar-nav, .nav-link, .navbar-collapse {
-  margin: 0;
-
-}
 .navbar-nav .dropdown-item.custom-nav-link {
   color: #000000 !important; /* Ganti dengan warna yang Anda inginkan */
 }
@@ -99,16 +96,18 @@
     background-color: #57A9CF;
     border-radius: 5px;
     color: white !important;
-    padding: 5px 10px !important;
+    padding: 7px 7px !important;
     display: inline-block; 
     text-decoration: none;
     max-width: none !important;
     box-sizing: border-box; 
+    margin: 0 !important;
 }
 
 
 .custom-login-link a{
     padding-left: 0px;
+    margin: 0 !important;
 }
 .custom-login-link:hover {
     background-color:  #4788a7;
