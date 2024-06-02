@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-vars */
+
 import React from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import "./contact.css"; // Custom styling
@@ -9,11 +9,6 @@ import wavedown from "../../../public/waves-down.svg"; // Path to the bottom wav
 const ContactUs = () => {
   return (
     <Container fluid className="contact-container">
-      <img
-        src={wavedown} // Switched to the bottom wave image
-        alt="Wave Illustration"
-        className="img-fluid wave-background top-wave"
-      />
       <Row className="justify-content-center align-items-center">
         <Col md={5} className="text-center mb-4">
           <img src={contactImage} className="img-fluid" alt="Contact Us" />
@@ -27,11 +22,11 @@ const ContactUs = () => {
             </Form.Group>
             <Form.Group controlId="formEmail">
               <Form.Label>Email Address</Form.Label>
-              <Form.Control className="form-control-contact"  type="email" placeholder="Enter your email" required />
+              <Form.Control className="form-control-contact" type="email" placeholder="Enter your email" required />
             </Form.Group>
             <Form.Group controlId="formMessage">
               <Form.Label>Message</Form.Label>
-              <Form.Control className="form-control-contact"  as="textarea" rows={4} placeholder="Enter your message" required />
+              <Form.Control className="form-control-contact" as="textarea" rows={4} placeholder="Enter your message" required />
             </Form.Group>
             <Button className="btn-contact" type="submit" block>
               Send Message
