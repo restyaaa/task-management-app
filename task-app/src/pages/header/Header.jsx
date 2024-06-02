@@ -10,6 +10,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
 
 const Header = () => {
+  //save into local storage
    const [darkMode, setDarkMode] = useState(() => {
      const storedMode = localStorage.getItem("darkMode");
      return storedMode ? JSON.parse(storedMode) : false;
