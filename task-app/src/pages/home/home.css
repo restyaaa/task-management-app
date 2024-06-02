@@ -67,10 +67,16 @@ margin-top: 0px;
 }
 .image-container-home img {
   margin-left: 10%;
+   transition: margin-left 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.image-container-home img:hover{
+  transform: scale(1.1);
 }
 .btn-sign-up-home{
   background-color: #57A9CF;
-  border: none;
+  color: white !important;
+  border: none !important;
   padding: 10px 20px;
   margin: 0;
 }
