@@ -1,8 +1,8 @@
+// DashboardUser.jsx
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { supabase } from "../../supabase/client";
 import Sidebar from "../../pages/sidebar/Sidebar";
-import "./dashboardUser.css"
+import "./dashboardUser.css";
 
 const DashboardUser = () => {
   const [user, setUser] = useState(null);
@@ -10,47 +10,32 @@ const DashboardUser = () => {
 
   useEffect(() => {
     const checkSession = async () => {
-      const {
-        data: { session },
-        error,
-      } = await supabase.auth.getSession();
-      if (error) {
-        console.error("Error fetching session: ", error);
-        navigate("/DashboardUser");
-        return;
-      }
-
-      if (session) {
-        setUser(session.user);
-      } else {
-        navigate("/");
-      }
+      const userData = await fetchUserData(); // Misalnya, fungsi untuk mengambil data pengguna
+      setUser(userData);
     };
 
     checkSession();
   }, [navigate]);
 
   const signOutUser = async () => {
-    const { error } = await supabase.auth.signOut();
-    if (!error) {
-      navigate("/");
-    } else {
-      console.error("Error signing out: ", error);
-    }
+    // Logic to sign out user
   };
 
-  return (
-    <div style={{ display: "flex" }}>
-      <Sidebar userEmail={user?.email} signOutUser={signOutUser} />
+return (
+  <div style={{ display: "flex" }}>
+    <div>
+      <Sidebar user={user} />
+    </div>
+    <div style={{ flex: 1 }}>
       {user ? (
-        <div className="container fw-bold">
-          INI DASHBOARD
-        </div>
+        <div className="container fw-bold">INI DASHBOARD</div>
       ) : (
         <p>Loading...</p>
       )}
     </div>
-  );
+  </div>
+);
+
 };
 
 export default DashboardUser;

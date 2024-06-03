@@ -1,13 +1,44 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/no-unescaped-entities */
-import React from 'react';
-import { Card, Button, Form } from 'react-bootstrap';
-import { FaArrowLeft } from 'react-icons/fa';
-import './login.css';
-import NoticLogo from '../../assets/letter-n.png';
-import { Link } from 'react-router-dom'; // Import Link if using react-router-dom
+// login.jsx
+import React, { useState } from "react";
+import { Card, Button, Form } from "react-bootstrap";
+import { FaArrowLeft } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import "./login.css";
+import NoticLogo from "../../assets/letter-n.png";
 
-const Login = () => {
+const Login = ({ onLogin }) => {
+  const [usernameOrEmail, setUsernameOrEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch("http://localhost:5000/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ usernameOrEmail, password }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        const { token } = data;
+        localStorage.setItem("token", token); // Simpan token di localStorage
+        onLogin(data); // Panggil fungsi onLogin yang diberikan oleh prop
+        navigate("/DashboardUser"); // Navigasi ke halaman DashboardUser setelah login berhasil
+      } else {
+        const errorData = await response.json();
+        setError(errorData.message);
+      }
+    } catch (error) {
+      setError("Failed to login. Please try again later.");
+    }
+  };
+
   return (
     <div className="login-page">
       <div className="logo-container">
@@ -24,21 +55,37 @@ const Login = () => {
         <Card className="login-card mt-2">
           <Card.Body>
             <div className="back-to-landing mb-3">
-              <Link to="/" className="text-decoration-none"> 
+              <a href="/" className="text-decoration-none">
                 <FaArrowLeft className="me-2" />
-              </Link>
+              </a>
             </div>
-            <Card.Title className="login-title text-center mb-4">Login</Card.Title>
-            <Form>
-              <Form.Group controlId="formEmail" className="mb-3">
-                <Form.Label className='bold'>Email</Form.Label>
-                <Form.Control type="email" placeholder="example@notic.com" />
+            <Card.Title className="login-title text-center mb-4">
+              Login
+            </Card.Title>
+            <Form onSubmit={handleSubmit}>
+              <Form.Group controlId="formUsernameOrEmail" className="mb-3">
+                <Form.Label className="bold">Username or Email</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter username or email"
+                  value={usernameOrEmail}
+                  onChange={(e) => setUsernameOrEmail(e.target.value)}
+                  required
+                />
               </Form.Group>
 
               <Form.Group controlId="formPassword" className="mb-3">
-                <Form.Label className='bold'>Password</Form.Label>
-                <Form.Control type="password" placeholder="Input password" />
+                <Form.Label className="bold">Password</Form.Label>
+                <Form.Control
+                  type="password"
+                  placeholder="Enter password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
               </Form.Group>
+
+              {error && <p className="text-danger">{error}</p>}
 
               <div className="d-flex justify-content-center mb-3">
                 <Button type="submit" className="btn-login w-50">
@@ -48,11 +95,16 @@ const Login = () => {
             </Form>
 
             <div className="text-left mb-3">
-              <a href="#" className="text-decoration-none text-social">Forgot Password?</a>
+              <a href="#" className="text-decoration-none text-social">
+                Forgot Password?
+              </a>
             </div>
 
             <div className="text-left mb-3">
-              Don't have an account? <a href="/register" className="text-decoration-none text-social">Register now</a>
+              Don't have an account?{" "}
+              <a href="/register" className="text-decoration-none text-social">
+                Register now
+              </a>
             </div>
 
             <div className="divider">
@@ -61,13 +113,23 @@ const Login = () => {
 
             <div className="d-flex justify-content-center mb-2">
               <Button className="btn-login-social w-50 mb-2">
-                <img src="../../public/google.svg" alt="Google" className="me-2" /> Sign in with Google
+                <img
+                  src="../../public/google.svg"
+                  alt="Google"
+                  className="me-2"
+                />{" "}
+                Sign in with Google
               </Button>
             </div>
 
             <div className="d-flex justify-content-center">
               <Button className="btn-login-social w-50">
-                <img src="../../public/discord.svg" alt="Discord" className="me-2" /> Sign in with Discord
+                <img
+                  src="../../public/discord.svg"
+                  alt="Discord"
+                  className="me-2"
+                />{" "}
+                Sign in with Discord
               </Button>
             </div>
           </Card.Body>
