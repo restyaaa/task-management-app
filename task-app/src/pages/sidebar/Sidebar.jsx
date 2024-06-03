@@ -2,7 +2,6 @@ import React from "react";
 import {
   CDBSidebar,
   CDBSidebarContent,
-  CDBSidebarFooter,
   CDBSidebarHeader,
   CDBSidebarMenu,
   CDBSidebarMenuItem,
@@ -12,7 +11,16 @@ import "./sidebar.css";
 import profilePicture from "../../assets/restya.jpeg"; // import gambar profil
 import logo from "../../assets/letter-n.png";
 
-const Sidebar = ({ userEmail }) => {
+const Sidebar = ({ user }) => {
+  console.log("Data pengguna di Sidebar.jsx:", user);
+
+  // Periksa apakah user ada dan email ada di dalamnya
+  if (user && user.email) {
+    console.log("Email pengguna:", user.email);
+  } else {
+    console.log("Data pengguna atau email tidak tersedia");
+  }
+
   return (
     <div
       className="sidebar-container"
@@ -31,7 +39,11 @@ const Sidebar = ({ userEmail }) => {
         <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
           <div className="logo-container">
             <img src={logo} alt="Logo" className="logo" />
-            <a href="/" className="text-decoration-none" style={{ color: "black" }}>
+            <a
+              href="/"
+              className="text-decoration-none"
+              style={{ color: "black" }}
+            >
               Notic
             </a>
           </div>
@@ -42,8 +54,8 @@ const Sidebar = ({ userEmail }) => {
               className="profile-picture"
             />
             <div className="profile-details">
-              <p className="username">Username</p>
-              <p className="email">{userEmail}</p>
+              <p className="username">{user && user.username}</p>
+              <p className="email">{user && user.email}</p>
             </div>
           </div>
         </CDBSidebarHeader>
@@ -51,13 +63,13 @@ const Sidebar = ({ userEmail }) => {
         <CDBSidebarContent className="sidebar-content">
           <CDBSidebarMenu>
             <NavLink
-              to="/DashboardUser"
+              to="/dashboarduser"
               className={({ isActive }) => (isActive ? "activeClicked" : "")}
             >
               <CDBSidebarMenuItem icon="columns">Dashboard</CDBSidebarMenuItem>
             </NavLink>
             <NavLink
-              to="/Settingan"
+              to="/settingan"
               className={({ isActive }) => (isActive ? "activeClicked" : "")}
             >
               <CDBSidebarMenuItem icon="table">Settings</CDBSidebarMenuItem>

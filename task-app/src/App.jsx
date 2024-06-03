@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import Header from "./pages/header/Header";
@@ -12,30 +13,60 @@ import Sidebar from "./pages/sidebar/Sidebar";
 import Settingan from "./pages/settingan/Settingan";
 
 function App() {
+  const [user, setUser] = useState(() => {
+    const savedUser = localStorage.getItem("user");
+    return savedUser ? JSON.parse(savedUser) : null;
+  });
+
+  useEffect(() => {
+    if (user) {
+      localStorage.setItem("user", JSON.stringify(user));
+    } else {
+      localStorage.removeItem("user");
+    }
+  }, [user]);
+
+  const handleLogin = (userData) => {
+    setUser(userData);
+  };
+
+  const handleLogout = () => {
+    setUser(null);
+  };
+
+  console.log("Data pengguna di App.jsx:", user);
+
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Header />}>
+        <Route
+          path="/"
+          element={<Header user={user} onLogout={handleLogout} />}
+        >
           <Route index element={<Home />} />
-          <Route path="AboutUs" element={<AboutUs />} />
-          <Route path="ContactUs" element={<ContactUs />} />
+          <Route path="aboutus" element={<AboutUs />} />
+          <Route path="contactus" element={<ContactUs />} />
         </Route>
-        <Route path="login" element={<Login />} />
+        <Route path="login" element={<Login onLogin={handleLogin} />} />
         <Route path="register" element={<Register />} />
-        {/* Di App.jsx */}
-        <Route path="/DashboardUser" element={<DashboardUser />}>
-          <Route
-            index
-            element={
+        <Route
+          path="/dashboarduser"
+          element={
+            user ? (
               <>
-                <Sidebar />
+                <Sidebar user={user} />{" "}
+                {/* Meneruskan properti user ke Sidebar */}
                 <DashboardUser />
               </>
-            }
-          />
-        </Route>
-        <Route path="/Settingan" element={<Settingan />} />{" "}
-        {/* Tambahkan rute untuk Settingan di sini */}
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
+        />
+        <Route
+          path="/settingan"
+          element={user ? <Settingan /> : <Navigate to="/login" />}
+        />
       </Routes>
     </BrowserRouter>
   );
