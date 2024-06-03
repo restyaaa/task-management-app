@@ -10,24 +10,24 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
 
 const Header = () => {
-  //save into local storage
-   const [darkMode, setDarkMode] = useState(() => {
-     const storedMode = localStorage.getItem("darkMode");
-     return storedMode ? JSON.parse(storedMode) : false;
-   });
+  // Save into local storage
+  const [darkMode, setDarkMode] = useState(() => {
+    const storedMode = localStorage.getItem("darkMode");
+    return storedMode ? JSON.parse(storedMode) : false;
+  });
 
-   useEffect(() => {
-     if (darkMode) {
-       document.body.classList.add("dark-mode");
-     } else {
-       document.body.classList.remove("dark-mode");
-     }
-     localStorage.setItem("darkMode", JSON.stringify(darkMode));
-   }, [darkMode]);
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add("dark-mode");
+    } else {
+      document.body.classList.remove("dark-mode");
+    }
+    localStorage.setItem("darkMode", JSON.stringify(darkMode));
+  }, [darkMode]);
 
-   const toggleDarkMode = () => {
-     setDarkMode(!darkMode);
-   };
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
 
   return (
     <div>
@@ -41,7 +41,6 @@ const Header = () => {
                 height="30"
                 className="d-inline-block align-top"
                 alt="Notic logo"
-                
               />
               <span className="fw-bold">Notic</span>
             </Navbar.Brand>
@@ -74,7 +73,6 @@ const Header = () => {
                   <NavDropdown.Divider />
                   <NavDropdown.Item href="#action/3.4">c</NavDropdown.Item>
                 </NavDropdown>
-
                 <Nav.Link
                   as={NavLink}
                   to="/login"
@@ -96,31 +94,62 @@ const Header = () => {
       </div>
 
       <footer className="footer">
-        <div className="footer-container">
-          <div className="footer-section">
-            <h4 className="fw-bolder">Tentang Kami</h4>
-            <ul>
-              <li><a href="#faq">FAQ</a></li>
-              <li><a href="#help">Bantuan</a></li>
-              <li><a href="#social">Sosial Media</a></li>
-            </ul>
+        <Container>
+          <div className="row footer-top">
+            <div className="col-md-3">
+              <div className="footer-logo-containe">
+                <img src={logo} alt="Footer Logo" className="footer-logo" />
+                <h3 className="fw-bold">Notic</h3>
+              </div>
+              <p>Get Noticed with Notic.</p>
+            </div>
+            
+            <div className="col-md-3">
+              <h5 className="fw-bold">Product</h5>
+              <ul className="list-unstyled">
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#solutions">Solutions</a></li>
+                <li><a href="#tutorials">Tutorials</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#releases">Releases</a></li>
+              </ul>
+            </div>
+            <div className="col-md-3">
+              <h5 className="fw-bold">Company</h5>
+              <ul className="list-unstyled">
+                <li><a href="#about">About us</a></li>
+                <li><a href="#careers">Careers</a></li>
+                <li><a href="#press">Press</a></li>
+                <li><a href="#news">News</a></li>
+                <li><a href="#media">Media kit</a></li>
+                <li><a href="#contact">Contact</a></li>
+              </ul>
+            </div>
+            <div className="col-md-3">
+              <h5 className="fw-bold">Resources</h5>
+              <ul className="list-unstyled">
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#newsletter">Newsletter</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#help">Help centre</a></li>
+                <li><a href="#tutorials">Tutorials</a></li>
+                <li><a href="#support">Support</a></li>
+              </ul>
+            </div>
           </div>
-          <div className="footer-section">
-            <h4 className="fw-bolder">Hubungi Kami</h4>
-            <ul>
-              <li><a href="#privacy">Kebijakan Privasi</a></li>
-              <li><a href="#security">Keamanan & Privasi</a></li>
-              <li><a href="#terms">Syarat dan Ketentuan</a></li>
-            </ul>
+          <div className="footer-bottom text-center mt-3">
+            <div className="social-icons">
+              <a href="#twitter"><i className="fab fa-twitter"></i></a>
+              <a href="#linkedin"><i className="fab fa-linkedin-in"></i></a>
+              <a href="#facebook"><i className="fab fa-facebook-f"></i></a>
+              <a href="#github"><i className="fab fa-github"></i></a>
+              <a href="#angellist"><i className="fab fa-angellist"></i></a>
+              <a href="#dribbble"><i className="fab fa-dribbble"></i></a>
+            </div>
+            <p>&copy; 2024 Notic. All rights reserved.</p>
           </div>
-          <div className="footer-section">
-            <h4 className="fw-bolder">Alamat</h4>
-            <address>
-              Kota Bandung, Jawa Barat, Indonesia
-            </address>
-            <p>&copy; 2024 Hotgens Indonesia.</p>
-          </div>
-        </div>
+        </Container>
       </footer>
     </div>
   );

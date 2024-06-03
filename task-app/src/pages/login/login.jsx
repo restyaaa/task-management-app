@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/no-unescaped-entities */
-import React from 'react';
+import React, { useState, useEffect } from "react";
 import { Card, Button, Form } from 'react-bootstrap';
 import { FaArrowLeft } from 'react-icons/fa';
 import './login.css';
@@ -8,6 +8,24 @@ import NoticLogo from '../../assets/letter-n.png';
 import { Link } from 'react-router-dom'; // Import Link if using react-router-dom
 
 const Login = () => {
+  const [darkMode, setDarkMode] = useState(() => {
+    const storedMode = localStorage.getItem("darkMode");
+    return storedMode ? JSON.parse(storedMode) : false;
+  });
+
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add("dark-mode");
+    } else {
+      document.body.classList.remove("dark-mode");
+    }
+    localStorage.setItem("darkMode", JSON.stringify(darkMode));
+  }, [darkMode]);
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
+
   return (
     <div className="login-page">
       <div className="logo-container">
@@ -28,7 +46,7 @@ const Login = () => {
                 <FaArrowLeft className="me-2" />
               </Link>
             </div>
-            <Card.Title className="login-title text-center mb-4">Login</Card.Title>
+            <Card.Title className="login-title text-center fw-bold mb-4">Login</Card.Title>
             <Form>
               <Form.Group controlId="formEmail" className="mb-3">
                 <Form.Label className='bold'>Email</Form.Label>
@@ -51,12 +69,12 @@ const Login = () => {
               <a href="#" className="text-decoration-none text-social">Forgot Password?</a>
             </div>
 
-            <div className="text-left mb-3">
+            <div className="text-left mb-3 login-putih">
               Don't have an account? <a href="/register" className="text-decoration-none text-social">Register now</a>
             </div>
 
             <div className="divider">
-              <span className="divider-text">or</span>
+              <span className="divider-text login-putih">or</span>
             </div>
 
             <div className="d-flex justify-content-center mb-2">

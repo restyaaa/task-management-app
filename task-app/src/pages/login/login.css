@@ -76,7 +76,7 @@
 .divider::after {
   content: '';
   flex: 1;
-  border-bottom: 2px solid #000;
+  border-bottom: 2px solid #555;
 }
 
 .divider::before {
@@ -140,4 +140,56 @@
 .wave-image {
   width: 100%;
   height: 100%;
+}
+
+.dark-mode .login-page {
+  background: linear-gradient(to right, #333, #222);
+  color: white;
+}
+
+.dark-mode .login-form {
+  color: #fff;
+}
+
+.dark-mode .login-card {
+  background-color: #333;
+}
+
+.dark-mode .bold {
+  color: #fff;
+}
+
+.dark-mode .login-putih {
+  color: #fff;
+}
+
+.dark-mode .form-control {
+  background-color: #222;
+  color: white;
+  border-color: #5cadd1;
+}
+
+.dark-mode .btn-login {
+  background-color: #5cadd1;
+  border-color: #5cadd1;
+}
+
+.dark-mode .btn-login:hover {
+  background-color: #4690a9;
+  border-color: #4690a9;
+}
+
+.dark-mode .login-title {
+  color: white;
+}
+
+.dark-mode .btn-login-social {
+  color: #fff;
+  background-color: #555;
+  border: none;
+}
+
+.dark-mode .btn-login-social:hover {
+  background-color: #777;
+  border: none;
 }
