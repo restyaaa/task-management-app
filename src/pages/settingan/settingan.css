@@ -1,4 +1,46 @@
-.konten-setting{
-    z-index: 0;
-    
+.konten-setting {
+  width: 100%;
+}
+
+.card-title {
+  font-weight: bold;
+}
+
+.card-body {
+  text-align: center;
+}
+
+.form-switch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-secondary {
+  background-color: #5c636a;
+  border-color: #5c636a;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+body.dark-mode .card {
+  background-color: #1e1e1e;
+}
+
+body.dark-mode .btn-secondary {
+  background-color: #777;
+  border-color: #777;
+}
+
+body.dark-mode .btn-danger {
+  background-color: #ff5252;
+  border-color: #ff5252;
 }

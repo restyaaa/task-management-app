@@ -7,6 +7,10 @@ import "./settingan.css";
 const Settingan = () => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [darkMode, setDarkMode] = useState(() => {
+    const storedMode = localStorage.getItem("darkMode");
+    return storedMode ? JSON.parse(storedMode) : false;
+  });
 
   useEffect(() => {
     if (!user) {
@@ -14,18 +18,30 @@ const Settingan = () => {
     }
   }, [user, navigate]);
 
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add("dark-mode");
+    } else {
+      document.body.classList.remove("dark-mode");
+    }
+    localStorage.setItem("darkMode", JSON.stringify(darkMode));
+  }, [darkMode]);
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
+
   const signOutUser = () => {
-    // Lakukan proses logout di sini
+    // Implement logout process here
   };
 
   return (
     <div style={{ display: "flex" }} className="konten-setting">
-
       <Container className="mt-4">
         <h4 className="fw-bold">Settings</h4>
         <Row className="mt-4">
           <Col md={6}>
-            <Card className="mb-4">
+            <Card className="mb-4 text-center">
               <Card.Body>
                 <Card.Title>Profile Pic</Card.Title>
                 <Card.Text>
@@ -42,16 +58,24 @@ const Settingan = () => {
             </Card>
           </Col>
           <Col md={6}>
-            <Card className="mb-4">
+            <Card className="mb-4 text-center">
               <Card.Body>
-                <Card.Title>Theme</Card.Title>
+                <Card.Title>Change Your Theme</Card.Title>
                 <Card.Text>
                   <Form>
-                    <Form.Check
-                      type="switch"
-                      id="theme-switch"
-                      label="Change Your Theme"
-                    />
+                    <div className="d-flex align-items-center justify-content-center">
+                      <span>What do you prefer?</span>
+                      <Form.Check
+                        type="switch"
+                        id="theme-switch"
+                        checked={darkMode}
+                        onChange={toggleDarkMode}
+                        className="ms-2"
+                      />
+                      <span className="ms-2">
+                        {darkMode ? '🌜' : '🌞'}
+                      </span>
+                    </div>
                   </Form>
                 </Card.Text>
               </Card.Body>
@@ -89,10 +113,7 @@ const Settingan = () => {
                 <Form>
                   <Form.Group controlId="formCurrentPassword">
                     <Form.Label>Current Password</Form.Label>
-                    <Form.Control
-                      type="password"
-                      placeholder="Current Password"
-                    />
+                    <Form.Control type="password" placeholder="Current Password" />
                   </Form.Group>
                   <Form.Group controlId="formNewPassword" className="mt-3">
                     <Form.Label>New Password</Form.Label>
@@ -100,10 +121,7 @@ const Settingan = () => {
                   </Form.Group>
                   <Form.Group controlId="formConfirmPassword" className="mt-3">
                     <Form.Label>Confirm Password</Form.Label>
-                    <Form.Control
-                      type="password"
-                      placeholder="Confirm Password"
-                    />
+                    <Form.Control type="password" placeholder="Confirm Password" />
                   </Form.Group>
                   <Button variant="secondary" className="mt-3 me-2">
                     Cancel
@@ -114,9 +132,6 @@ const Settingan = () => {
                 </Form>
               </Card.Body>
             </Card>
-        <Button variant="danger" className="mt-3" onClick={signOutUser}>
-          Logout
-        </Button>
           </Col>
         </Row>
       </Container>
