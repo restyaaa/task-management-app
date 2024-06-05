@@ -1,0 +1,92 @@
+.about-container {
+  background: #fff;
+  padding: 4rem 2rem;
+  position: relative;
+  overflow: hidden;
+  margin-top: 0px;
+}
+/* Styling untuk container yang mengelilingi card */
+
+.about-title {
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-top: 130px;
+}
+.about-title-about {
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.about-img {
+  border-radius: 50px;
+  background-color: #ffffff00;
+}
+
+.card-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.team-img {
+  width: auto;
+  height: 250px; /* Sesuaikan tinggi sesuai kebutuhan Anda */
+  object-fit: cover; /* Memastikan gambar terpotong agar sesuai dengan wadah */
+  max-width: 250px;
+}
+.card-team{
+  max-width: 250px;
+  margin-right: 10px;
+}
+.col-card{
+  margin-right: 10px;
+  padding: 0;
+  
+}
+
+
+@media (max-width: 576px) {
+  .justify-content-center {
+    margin-left: 50px;
+    margin-right: auto;
+  }
+
+  .team-img {
+  width: auto;
+  height: auto; /* Sesuaikan tinggi sesuai kebutuhan Anda */
+  object-fit: cover; /* Memastikan gambar terpotong agar sesuai dengan wadah */
+  max-width: 250px;
+}
+}
+
+
+
+
+
+
+
+.dark-mode .about-container {
+  background: linear-gradient(to right, #333, #222);
+  color: white;
+}
+
+.dark-mode .about-title {
+  color: white;
+}
+.dark-mode .about-title-about {
+  color: white;
+}
+
+.dark-mode .about-img{
+  background-color : #33333300;
+}
+
+.dark-mode .card-body {
+  background-color : #333;
+  border: none !important;
+}
+
+.dark-mode .card-text {
+  color: white;
+}

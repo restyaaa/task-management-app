@@ -1,0 +1,146 @@
+.register-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #fff;
+  padding: 20px;
+  position: relative;
+}
+
+.wave-container-atas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.wave-image-atas {
+  width: 100%;
+  height: auto;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  margin-bottom: 20px;
+  padding-left: 20px;
+  align-items: center;
+  z-index: 1;
+}
+
+.logo-container span {
+  font-size: 25px;
+}
+
+.notic-logo {
+  width: 40px;
+  height: auto;
+}
+
+.register-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.register-card {
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  z-index: 1;
+}
+
+.back-to-landing {
+  display: flex;
+  align-items: center;
+}
+
+.register-title {
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-social {
+  color: #57A9CF;
+}
+
+.register-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.register-divider::before,
+.register-divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 2px solid #000;
+}
+
+.register-divider::before {
+  margin-right: .25em;
+}
+
+.register-divider::after {
+  margin-left: .25em;
+}
+
+.register-divider-text {
+  padding: 0 10px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.btn-register {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  background-color: #57A9CF;
+  border-radius: 5px;
+  border: none;
+  font-weight: bold;
+}
+
+.btn-register:hover {
+  background-color: #4788a7;
+}
+
+.btn-register-social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  background-color: #fff;
+  border: 1px solid #000;
+}
+
+.btn-register-social:hover {
+  color: #fff;
+  background-color: #4788a7;
+  border-color: #4788a7;
+}
+
+.btn-register-social img {
+  height: 20px;
+  width: 20px;
+}

@@ -1,0 +1,143 @@
+.login-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #fff;
+  padding: 20px;
+  position: relative;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  margin-bottom: 20px; 
+  padding-left: 20px; 
+  align-items: center;
+}
+
+.logo-container span {
+  font-size: 25px;
+}
+
+.notic-logo {
+  width: 20px; 
+  height: auto;
+}
+
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  z-index: 2;
+}
+
+.back-to-landing {
+  display: flex;
+  align-items: center;
+}
+
+.login-title {
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-social {
+  color: #57A9CF;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 2px solid #000;
+}
+
+.divider::before {
+  margin-right: .25em;
+}
+
+.divider::after {
+  margin-left: .25em;
+}
+
+.divider-text {
+  padding: 0 10px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.btn-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  background-color: #57A9CF;
+  border-radius: 5px;
+  border: none;
+  font-weight: bold;
+}
+
+.btn-login:hover {
+  background-color: #4788a7;
+}
+
+.btn-login-social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  background-color: #fff;
+  border: 1px solid #000;
+}
+
+.btn-login-social:hover {
+  color: #fff;
+  background-color: #4788a7;
+  border-color: #4788a7;
+}
+
+.btn-login-social img {
+  height: 20px;
+  width: 20px;
+}
+
+.wave-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.wave-image {
+  width: 100%;
+  height: 100%;
+}
