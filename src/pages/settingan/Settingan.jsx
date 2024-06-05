@@ -1,35 +1,20 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
 import { AuthContext } from "../../context/AuthContext";
+import { ThemeContext } from "../../context/ThemeContext"; // Import ThemeContext
 import "./settingan.css";
 
 const Settingan = () => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
-  const [darkMode, setDarkMode] = useState(() => {
-    const storedMode = localStorage.getItem("darkMode");
-    return storedMode ? JSON.parse(storedMode) : false;
-  });
+  const { darkMode, toggleDarkMode } = useContext(ThemeContext); // Dapatkan nilai darkMode dan fungsi toggleDarkMode dari ThemeContext
 
   useEffect(() => {
     if (!user) {
       navigate("/login");
     }
   }, [user, navigate]);
-
-  useEffect(() => {
-    if (darkMode) {
-      document.body.classList.add("dark-mode");
-    } else {
-      document.body.classList.remove("dark-mode");
-    }
-    localStorage.setItem("darkMode", JSON.stringify(darkMode));
-  }, [darkMode]);
-
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-  };
 
   const signOutUser = () => {
     // Implement logout process here
@@ -69,12 +54,10 @@ const Settingan = () => {
                         type="switch"
                         id="theme-switch"
                         checked={darkMode}
-                        onChange={toggleDarkMode}
+                        onChange={toggleDarkMode} // Gunakan toggleDarkMode untuk mengaktifkan atau menonaktifkan dark mode
                         className="ms-2"
                       />
-                      <span className="ms-2">
-                        {darkMode ? '🌜' : '🌞'}
-                      </span>
+                      <span className="ms-2">{darkMode ? "🌜" : "🌞"}</span>
                     </div>
                   </Form>
                 </Card.Text>
@@ -113,7 +96,10 @@ const Settingan = () => {
                 <Form>
                   <Form.Group controlId="formCurrentPassword">
                     <Form.Label>Current Password</Form.Label>
-                    <Form.Control type="password" placeholder="Current Password" />
+                    <Form.Control
+                      type="password"
+                      placeholder="Current Password"
+                    />
                   </Form.Group>
                   <Form.Group controlId="formNewPassword" className="mt-3">
                     <Form.Label>New Password</Form.Label>
@@ -121,7 +107,10 @@ const Settingan = () => {
                   </Form.Group>
                   <Form.Group controlId="formConfirmPassword" className="mt-3">
                     <Form.Label>Confirm Password</Form.Label>
-                    <Form.Control type="password" placeholder="Confirm Password" />
+                    <Form.Control
+                      type="password"
+                      placeholder="Confirm Password"
+                    />
                   </Form.Group>
                   <Button variant="secondary" className="mt-3 me-2">
                     Cancel

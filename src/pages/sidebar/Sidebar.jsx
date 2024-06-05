@@ -9,32 +9,21 @@ import {
 } from "cdbreact";
 import { NavLink } from "react-router-dom";
 import "./sidebar.css";
-import profilePicture from "../../assets/restya.jpeg"; // import gambar profil
+import profilePicture from "../../assets/restya.jpeg";
 import logo from "../../assets/letter-n.png";
+import { ThemeContext } from "../../context/ThemeContext";
 
 const Sidebar = ({ user }) => {
-  console.log("Data pengguna di Sidebar.jsx:", user);
   const { logout } = useContext(AuthContext);
-  // Periksa apakah user ada dan email ada di dalamnya
-  if (user && user.email) {
-    console.log("Email pengguna:", user.email);
-  } else {
-    console.log("Data pengguna atau email tidak tersedia");
-  }
+  const { darkMode } = useContext(ThemeContext);
 
   return (
     <div
-      className="sidebar-container"
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        height: "100vh",
-        overflow: "scroll initial",
-      }}
+      className={`sidebar-container ${darkMode ? "dark-mode" : "light-mode"}`}
     >
       <CDBSidebar
-        textColor="#000000"
-        backgroundColor="white"
+        textColor={darkMode ? "#ffffff" : "#000000"}
+        backgroundColor={darkMode ? "#333333" : "white"}
         className="sidebar"
       >
         <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
@@ -43,7 +32,7 @@ const Sidebar = ({ user }) => {
             <a
               href="/"
               className="text-decoration-none"
-              style={{ color: "black" }}
+              style={{ color: darkMode ? "white" : "black" }}
             >
               Notic
             </a>
@@ -60,26 +49,40 @@ const Sidebar = ({ user }) => {
             </div>
           </div>
         </CDBSidebarHeader>
-
         <CDBSidebarContent className="sidebar-content">
           <CDBSidebarMenu>
             <NavLink
               to="/dashboarduser"
               className={({ isActive }) => (isActive ? "activeClicked" : "")}
             >
-              <CDBSidebarMenuItem icon="columns">Dashboard</CDBSidebarMenuItem>
+              <CDBSidebarMenuItem
+                icon="columns"
+                style={{ color: darkMode ? "white" : "black" }}
+              >
+                Dashboard
+              </CDBSidebarMenuItem>
             </NavLink>
             <NavLink
               to="/settingan"
               className={({ isActive }) => (isActive ? "activeClicked" : "")}
             >
-              <CDBSidebarMenuItem icon="table">Settings</CDBSidebarMenuItem>
+              <CDBSidebarMenuItem
+                icon="table"
+                style={{ color: darkMode ? "white" : "black" }}
+              >
+                Settings
+              </CDBSidebarMenuItem>
             </NavLink>
             <NavLink
               to="/project"
               className={({ isActive }) => (isActive ? "activeClicked" : "")}
             >
-              <CDBSidebarMenuItem icon="user">Project</CDBSidebarMenuItem>
+              <CDBSidebarMenuItem
+                icon="user"
+                style={{ color: darkMode ? "white" : "black" }}
+              >
+                Project
+              </CDBSidebarMenuItem>
             </NavLink>
             <div
               style={{

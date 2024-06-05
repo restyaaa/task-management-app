@@ -12,29 +12,32 @@ import DashboardUser from "./pages/dahsboardUser/DashboardUser";
 import Sidebar from "./pages/sidebar/Sidebar";
 import Settingan from "./pages/settingan/Settingan";
 import { AuthProvider, AuthContext } from "./context/AuthContext";
+import { ThemeProvider } from "./context/ThemeContext";
 
 function App() {
   return (
     <AuthProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<HeaderWrapper />}>
-            <Route index element={<Home />} />
-            <Route path="aboutus" element={<AboutUs />} />
-            <Route path="contactus" element={<ContactUs />} />
-          </Route>
-          <Route path="login" element={<LoginWrapper />} />
-          <Route path="register" element={<Register />} />
-          <Route
-            path="/dashboarduser"
-            element={<ProtectedRoute component={DashboardUser} />}
-          />
-          <Route
-            path="/settingan"
-            element={<ProtectedRoute component={Settingan} />}
-          />
-        </Routes>
-      </BrowserRouter>
+      <ThemeProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<HeaderWrapper />}>
+              <Route index element={<Home />} />
+              <Route path="aboutus" element={<AboutUs />} />
+              <Route path="contactus" element={<ContactUs />} />
+            </Route>
+            <Route path="login" element={<LoginWrapper />} />
+            <Route path="register" element={<Register />} />
+            <Route
+              path="/dashboarduser"
+              element={<ProtectedRoute component={DashboardUser} />}
+            />
+            <Route
+              path="/settingan"
+              element={<ProtectedRoute component={Settingan} />}
+            />
+          </Routes>
+        </BrowserRouter>
+      </ThemeProvider>
     </AuthProvider>
   );
 }
