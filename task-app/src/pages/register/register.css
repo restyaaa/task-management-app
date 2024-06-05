@@ -91,7 +91,7 @@
 .register-divider::after {
   content: '';
   flex: 1;
-  border-bottom: 2px solid #000;
+  border-bottom: 2px solid #555;
 }
 
 .register-divider::before {
@@ -143,4 +143,51 @@
 .btn-register-social img {
   height: 20px;
   width: 20px;
+}
+
+.dark-mode .register-page {
+  background: linear-gradient(to right, #333, #222);
+}
+
+.dark-mode .register-form {
+  color: #fff;
+}
+
+.dark-mode .register-card {
+  background-color: #333;
+}
+
+.dark-mode .register-putih {
+  color: #fff;
+}
+
+.dark-mode .form-control {
+  background-color: #222;
+  color: white;
+  border-color: #5cadd1;
+}
+
+.dark-mode .btn-register {
+  background-color: #5cadd1;
+  border-color: #5cadd1;
+}
+
+.dark-mode .btn-register:hover {
+  background-color: #4690a9;
+  border-color: #4690a9;
+}
+
+.dark-mode .register-title {
+  color: white;
+}
+
+.dark-mode .btn-register-social {
+  color: #fff;
+  background-color: #555;
+  border: none;
+}
+
+.dark-mode .btn-register-social:hover {
+  background-color: #777;
+  border: none;
 }

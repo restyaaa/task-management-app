@@ -1,10 +1,12 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/no-unescaped-entities */
-import React, { useState } from "react";
-import { Card, Button, Form, Row, Col } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import "./register.css";
-import NoticLogo from "../../assets/letter-n.png";
+import { Card, Button, Form, Row, Col } from 'react-bootstrap';
+import './register.css';
+import NoticLogo from '../../assets/letter-n.png';
+import { Link } from 'react-router-dom';
+import { FaArrowLeft } from 'react-icons/fa';
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -40,6 +42,23 @@ const Register = () => {
     }
   };
 
+  const [darkMode, setDarkMode] = useState(() => {
+    const storedMode = localStorage.getItem("darkMode");
+    return storedMode ? JSON.parse(storedMode) : false;
+  });
+
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add("dark-mode");
+    } else {
+      document.body.classList.remove("dark-mode");
+    }
+    localStorage.setItem("darkMode", JSON.stringify(darkMode));
+  }, [darkMode]);
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
   return (
     <div className="register-page">
       <div className="wave-container-atas mb-5">
@@ -57,14 +76,17 @@ const Register = () => {
           className="d-inline-block align-top ms-4 mt-3"
           alt="Notic logo"
         />
-        <span className="fw-bold ms-2 mt-3">Notic</span>
+        <span className="fw-bold ms-2 mt-3 register-title">Notic</span>
       </div>
       <div className="register-container">
         <Card className="register-card">
           <Card.Body>
-            <Card.Title className="register-title text-center mb-4">
-              Register
-            </Card.Title>
+          <div className="back-to-landing mb-3">
+              <Link to="/" className="text-decoration-none"> 
+                <FaArrowLeft className="me-2" />
+              </Link>
+            </div>
+            <Card.Title className="register-title text-center fw-bold mb-4">Register</Card.Title>
             <Form onSubmit={handleSubmit}>
               <Row>
                 <Col md={6}>
@@ -111,15 +133,13 @@ const Register = () => {
               </div>
             </Form>
 
-            <div className="text-left mb-3">
+            <div className="text-left mb-3 register-putih">
               Already have an account?{" "}
-              <a href="/login" className="text-decoration-none">
-                Login here
-              </a>
+              <a href="/login" className="text-decoration-none">Login here</a>
             </div>
 
             <div className="register-divider">
-              <span className="register-divider-text">or</span>
+              <span className="register-divider-text register-putih">or</span>
             </div>
 
             <div className="d-flex justify-content-center mb-2">

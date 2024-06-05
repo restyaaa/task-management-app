@@ -42,6 +42,23 @@ const Login = () => {
     }
   };
 
+  const [darkMode, setDarkMode] = useState(() => {
+    const storedMode = localStorage.getItem("darkMode");
+    return storedMode ? JSON.parse(storedMode) : false;
+  });
+
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add("dark-mode");
+    } else {
+      document.body.classList.remove("dark-mode");
+    }
+    localStorage.setItem("darkMode", JSON.stringify(darkMode));
+  }, [darkMode]);
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
   return (
     <div className="login-page">
       <div className="logo-container">
@@ -62,19 +79,11 @@ const Login = () => {
                 <FaArrowLeft className="me-2" />
               </a>
             </div>
-            <Card.Title className="login-title text-center mb-4">
-              Login
-            </Card.Title>
-            <Form onSubmit={handleSubmit}>
-              <Form.Group controlId="formUsernameOrEmail" className="mb-3">
-                <Form.Label className="bold">Username or Email</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Enter username or email"
-                  value={usernameOrEmail}
-                  onChange={(e) => setUsernameOrEmail(e.target.value)}
-                  required
-                />
+            <Card.Title className="login-title text-center fw-bold mb-4">Login</Card.Title>
+            <Form>
+              <Form.Group controlId="formEmail" className="mb-3">
+                <Form.Label className='bold'>Email</Form.Label>
+                <Form.Control type="email" placeholder="example@notic.com" />
               </Form.Group>
 
               <Form.Group controlId="formPassword" className="mb-3">
@@ -103,15 +112,12 @@ const Login = () => {
               </a>
             </div>
 
-            <div className="text-left mb-3">
-              Don't have an account?{" "}
-              <a href="/register" className="text-decoration-none text-social">
-                Register now
-              </a>
+            <div className="text-left mb-3 login-putih">
+              Don't have an account? <a href="/register" className="text-decoration-none text-social">Register now</a>
             </div>
 
             <div className="divider">
-              <span className="divider-text">or</span>
+              <span className="divider-text login-putih">or</span>
             </div>
 
             <div className="d-flex justify-content-center mb-2">
