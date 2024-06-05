@@ -1,16 +1,17 @@
-// login.jsx
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Card, Button, Form } from "react-bootstrap";
 import { FaArrowLeft } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import "./login.css";
 import NoticLogo from "../../assets/letter-n.png";
+import { AuthContext } from "../../context/AuthContext";
 
-const Login = ({ onLogin }) => {
+const Login = () => {
   const [usernameOrEmail, setUsernameOrEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const { login } = useContext(AuthContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,15 +25,17 @@ const Login = ({ onLogin }) => {
         body: JSON.stringify({ usernameOrEmail, password }),
       });
 
+      const data = await response.json();
+      console.log("Response dari server:", data);
+
       if (response.ok) {
-        const data = await response.json();
-        const { token } = data;
-        localStorage.setItem("token", token); // Simpan token di localStorage
-        onLogin(data); // Panggil fungsi onLogin yang diberikan oleh prop
-        navigate("/DashboardUser"); // Navigasi ke halaman DashboardUser setelah login berhasil
+        const { token, ...user } = data;
+        localStorage.setItem("token", token);
+        login(user);
+        console.log("Login berhasil, mengarahkan ke dashboard...");
+        navigate("/DashboardUser");
       } else {
-        const errorData = await response.json();
-        setError(errorData.message);
+        setError(data.message);
       }
     } catch (error) {
       setError("Failed to login. Please try again later.");

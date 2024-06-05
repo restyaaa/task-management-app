@@ -1,57 +1,41 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { supabase } from "../../supabase/client";
-import Sidebar from "../../pages/sidebar/Sidebar";
-import { Container, Row, Col, Form, Button, Card } from 'react-bootstrap';
+import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
+import { AuthContext } from "../../context/AuthContext";
 import "./settingan.css";
 
 const Settingan = () => {
-  const [user, setUser] = useState(null);
+  const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const checkSession = async () => {
-      const {
-        data: { session },
-        error,
-      } = await supabase.auth.getSession();
-      if (error) {
-        console.error("Error fetching session: ", error);
-        navigate("/DashboardUser");
-        return;
-      }
-
-      if (session) {
-        setUser(session.user);
-      } else {
-        navigate("/");
-      }
-    };
-
-    checkSession();
-  }, [navigate]);
-
-  const signOutUser = async () => {
-    const { error } = await supabase.auth.signOut();
-    if (!error) {
-      navigate("/");
-    } else {
-      console.error("Error signing out: ", error);
+    if (!user) {
+      navigate("/login");
     }
+  }, [user, navigate]);
+
+  const signOutUser = () => {
+    // Lakukan proses logout di sini
   };
 
   return (
-    <div style={{ display: "flex" }}>
-      <Sidebar userEmail={user?.email} signOutUser={signOutUser} />
+    <div style={{ display: "flex" }} className="konten-setting">
+
       <Container className="mt-4">
-        <h2 className="fw-bold">Settings</h2>
+        <h4 className="fw-bold">Settings</h4>
         <Row className="mt-4">
           <Col md={6}>
             <Card className="mb-4">
               <Card.Body>
                 <Card.Title>Profile Pic</Card.Title>
                 <Card.Text>
-                  <img src="path-to-your-profile-pic.jpg" alt="Profile" className="rounded-circle" width="100" height="100" />
+                  <img
+                    src="path-to-your-profile-pic.jpg"
+                    alt="Profile"
+                    className="rounded-circle"
+                    width="100"
+                    height="100"
+                  />
                   <div>New Profile Pic</div>
                 </Card.Text>
               </Card.Body>
@@ -63,7 +47,7 @@ const Settingan = () => {
                 <Card.Title>Theme</Card.Title>
                 <Card.Text>
                   <Form>
-                    <Form.Check 
+                    <Form.Check
                       type="switch"
                       id="theme-switch"
                       label="Change Your Theme"
@@ -88,8 +72,12 @@ const Settingan = () => {
                     <Form.Label>New Username</Form.Label>
                     <Form.Control type="text" placeholder="New Username" />
                   </Form.Group>
-                  <Button variant="secondary" className="mt-3 me-2">Cancel</Button>
-                  <Button variant="danger" className="mt-3">Confirm</Button>
+                  <Button variant="secondary" className="mt-3 me-2">
+                    Cancel
+                  </Button>
+                  <Button variant="danger" className="mt-3">
+                    Confirm
+                  </Button>
                 </Form>
               </Card.Body>
             </Card>
@@ -101,7 +89,10 @@ const Settingan = () => {
                 <Form>
                   <Form.Group controlId="formCurrentPassword">
                     <Form.Label>Current Password</Form.Label>
-                    <Form.Control type="password" placeholder="Current Password" />
+                    <Form.Control
+                      type="password"
+                      placeholder="Current Password"
+                    />
                   </Form.Group>
                   <Form.Group controlId="formNewPassword" className="mt-3">
                     <Form.Label>New Password</Form.Label>
@@ -109,16 +100,25 @@ const Settingan = () => {
                   </Form.Group>
                   <Form.Group controlId="formConfirmPassword" className="mt-3">
                     <Form.Label>Confirm Password</Form.Label>
-                    <Form.Control type="password" placeholder="Confirm Password" />
+                    <Form.Control
+                      type="password"
+                      placeholder="Confirm Password"
+                    />
                   </Form.Group>
-                  <Button variant="secondary" className="mt-3 me-2">Cancel</Button>
-                  <Button variant="danger" className="mt-3">Confirm</Button>
+                  <Button variant="secondary" className="mt-3 me-2">
+                    Cancel
+                  </Button>
+                  <Button variant="danger" className="mt-3">
+                    Confirm
+                  </Button>
                 </Form>
               </Card.Body>
             </Card>
+        <Button variant="danger" className="mt-3" onClick={signOutUser}>
+          Logout
+        </Button>
           </Col>
         </Row>
-        <Button variant="danger" className="mt-3" onClick={signOutUser}>Logout</Button>
       </Container>
     </div>
   );

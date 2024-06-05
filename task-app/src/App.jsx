@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
@@ -11,65 +11,57 @@ import Register from "./pages/register/register";
 import DashboardUser from "./pages/dahsboardUser/DashboardUser";
 import Sidebar from "./pages/sidebar/Sidebar";
 import Settingan from "./pages/settingan/Settingan";
+import { AuthProvider, AuthContext } from "./context/AuthContext";
 
 function App() {
-  const [user, setUser] = useState(() => {
-    const savedUser = localStorage.getItem("user");
-    return savedUser ? JSON.parse(savedUser) : null;
-  });
-
-  useEffect(() => {
-    if (user) {
-      localStorage.setItem("user", JSON.stringify(user));
-    } else {
-      localStorage.removeItem("user");
-    }
-  }, [user]);
-
-  const handleLogin = (userData) => {
-    setUser(userData);
-  };
-
-  const handleLogout = () => {
-    setUser(null);
-  };
-
-  console.log("Data pengguna di App.jsx:", user);
-
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route
-          path="/"
-          element={<Header user={user} onLogout={handleLogout} />}
-        >
-          <Route index element={<Home />} />
-          <Route path="aboutus" element={<AboutUs />} />
-          <Route path="contactus" element={<ContactUs />} />
-        </Route>
-        <Route path="login" element={<Login onLogin={handleLogin} />} />
-        <Route path="register" element={<Register />} />
-        <Route
-          path="/dashboarduser"
-          element={
-            user ? (
-              <>
-                <Sidebar user={user} />{" "}
-                {/* Meneruskan properti user ke Sidebar */}
-                <DashboardUser />
-              </>
-            ) : (
-              <Navigate to="/login" />
-            )
-          }
-        />
-        <Route
-          path="/settingan"
-          element={user ? <Settingan /> : <Navigate to="/login" />}
-        />
-      </Routes>
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HeaderWrapper />}>
+            <Route index element={<Home />} />
+            <Route path="aboutus" element={<AboutUs />} />
+            <Route path="contactus" element={<ContactUs />} />
+          </Route>
+          <Route path="login" element={<LoginWrapper />} />
+          <Route path="register" element={<Register />} />
+          <Route
+            path="/dashboarduser"
+            element={<ProtectedRoute component={DashboardUser} />}
+          />
+          <Route
+            path="/settingan"
+            element={<ProtectedRoute component={Settingan} />}
+          />
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
+
+// Wrapper component for Header to use AuthContext
+const HeaderWrapper = () => {
+  const { user, logout } = React.useContext(AuthContext);
+  return <Header user={user} onLogout={logout} />;
+};
+
+// Wrapper component for Login to use AuthContext
+const LoginWrapper = () => {
+  const { login } = React.useContext(AuthContext);
+  return <Login onLogin={login} />;
+};
+
+// Component to protect routes
+const ProtectedRoute = ({ component: Component }) => {
+  const { user } = React.useContext(AuthContext);
+  return user ? (
+    <div className="protected-route-container">
+      <Sidebar user={user} />
+      <Component user={user} />
+    </div>
+  ) : (
+    <Navigate to="/login" />
+  );
+};
 
 export default App;

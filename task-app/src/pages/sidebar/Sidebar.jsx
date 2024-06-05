@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 import {
   CDBSidebar,
   CDBSidebarContent,
@@ -13,7 +14,7 @@ import logo from "../../assets/letter-n.png";
 
 const Sidebar = ({ user }) => {
   console.log("Data pengguna di Sidebar.jsx:", user);
-
+const { logout } = useContext(AuthContext);
   // Periksa apakah user ada dan email ada di dalamnya
   if (user && user.email) {
     console.log("Email pengguna:", user.email);
@@ -80,6 +81,12 @@ const Sidebar = ({ user }) => {
             >
               <CDBSidebarMenuItem icon="user">Project</CDBSidebarMenuItem>
             </NavLink>
+            <div style={{ color: "red", position: "absolute", bottom: "10px", width: "100%" }}>
+  <CDBSidebarMenuItem onClick={logout} icon="sign-out-alt">
+    Logout
+  </CDBSidebarMenuItem>
+</div>
+
           </CDBSidebarMenu>
         </CDBSidebarContent>
       </CDBSidebar>
