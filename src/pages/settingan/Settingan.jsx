@@ -20,7 +20,6 @@ const Settingan = () => {
 
   return (
     <div style={{ display: "flex" }} className="konten-setting">
-
       <Container className="mt-4">
         <h4 className="fw-bold">Settings</h4>
         <Row className="mt-4">
@@ -114,9 +113,9 @@ const Settingan = () => {
                 </Form>
               </Card.Body>
             </Card>
-        <Button variant="danger" className="mt-3" onClick={signOutUser}>
-          Logout
-        </Button>
+            <Button variant="danger" className="mt-3" onClick={signOutUser}>
+              Logout
+            </Button>
           </Col>
         </Row>
       </Container>
