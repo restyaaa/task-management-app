@@ -1,0 +1,169 @@
+.contact-container {
+  background: white;
+  padding: 3rem 2rem 4rem; /* Increased padding on top to move the form up */
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-form {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  padding: .5rem;
+  transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+  position: relative;
+  z-index: 2;
+  margin: 0; /* Remove extra margin */
+}
+
+.contact-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.form-control-contact {
+  border-radius: 20px;
+  border: 2px solid #5cadd1;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  font-size: 1.2rem;
+}
+
+.form-control::placeholder {
+  font-weight: bold;
+  color: #5cadd1;
+}
+
+.btn-contact {
+  background-color: #5cadd1;
+  border-color: #5cadd1;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border-radius: 20px;
+  padding: 0.75rem 2rem;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.btn-contact:hover {
+  background-color: #4690a9;
+  border-color: #4690a9;
+  transform: scale(1.05);
+}
+
+.dark-mode .contact-container {
+  background: linear-gradient(to right, #333, #222);
+  color: white;
+}
+
+.dark-mode .contact-form {
+  background-color: #222;
+}
+
+.dark-mode .form-control {
+  background-color: #222;
+  color: white;
+  border-color: #5cadd1;
+}
+
+.dark-mode .btn-contact {
+  background-color: #5cadd1;
+  border-color: #5cadd1;
+}
+
+.dark-mode .btn-contact:hover {
+  background-color: #4690a9;
+  border-color: #4690a9;
+}
+
+.dark-mode .contact-title {
+  color: white;
+}
+
+.wave-background {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  left: 0;
+  z-index: 1;
+}
+
+.bottom-wave {
+  bottom: 0;
+}
+
+/* Styles for modal */
+.confirmation-modal .modal-content {
+  border-radius: 20px;
+  animation: fadeInUp 0.3s ease-in-out;
+  background-color: #f8f9fa;
+}
+
+.confirmation-modal .modal-header, 
+.confirmation-modal .modal-body, 
+.confirmation-modal .modal-footer {
+  padding: 1.5rem;
+  border: none;
+}
+
+.confirmation-modal .modal-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.confirmation-modal .modal-title i {
+  margin-right: 0.5rem;
+  color: #5cadd1;
+  font-size: 2rem;
+}
+
+.confirmation-modal .btn-modal {
+  background-color: #5cadd1;
+  border-color: #5cadd1;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border-radius: 20px;
+  padding: 0.75rem 2rem;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.confirmation-modal .btn-modal:hover {
+  background-color: #4690a9;
+  border-color: #4690a9;
+  transform: scale(1.05);
+}
+
+.dark-mode .confirmation-modal .modal-content {
+  background-color: #222;
+  color: white;
+}
+
+.dark-mode .confirmation-modal .modal-title i {
+  color: #5cadd1;
+}
+
+.dark-mode .confirmation-modal .btn-modal {
+  background-color: #5cadd1;
+  border-color: #5cadd1;
+}
+
+.dark-mode .confirmation-modal .btn-modal:hover {
+  background-color: #4690a9;
+  border-color: #4690a9;
+}
+
+/* Animation for modal */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

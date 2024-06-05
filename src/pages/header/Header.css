@@ -1,0 +1,330 @@
+.containerNotic{
+  background-color: rgb(255, 255, 255);
+  padding: 0;
+  margin: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 1800px; 
+}
+
+.custom-nav-link {
+color: #000;
+text-decoration: none;
+
+}
+
+.custom-login-link {
+color: #000;
+text-decoration: none;
+margin: 0 !important;
+padding: 0 !important;
+  
+}
+
+.custom-nav-link.active,
+.custom-login-link.active {
+
+color: #57A9CF !important;
+font-weight: bold;
+padding: 0.5rem 1rem;
+}
+
+.fixed-top {
+position: fixed;
+top: 0;
+width: 100%;
+z-index: 1030; /* Ensure the navbar is above other content */
+}
+
+.content {
+margin-top: 80px; /* Adjust this value if your navbar height is different */
+}
+
+.container-head{
+max-width: 1800px;
+margin: 20px 20px 20px 20px !important;
+}
+.navbar {
+margin: 0;
+padding: 0;
+}
+.custom-nav-link {
+color: #000000 !important; /* Ganti dengan warna yang Anda inginkan */
+align-self: center;
+margin-right: 5px;
+}
+.custom-nav-link a {
+color: #000000 !important; /* Ganti dengan warna yang Anda inginkan */
+}
+
+.custom-nav-link:hover {
+color: #57A9CF !important; /* Warna saat dihover */
+
+
+}
+.custom-nav-link a:hover {
+color: #57A9CF !important; /* Warna saat dihover */
+
+}
+
+.navbar-nav .dropdown-item.custom-nav-link {
+color: #000000 !important; /* Ganti dengan warna yang Anda inginkan */
+}
+
+.navbar-nav .dropdown-item.custom-nav-link:hover {
+color: #57A9CF !important; /* Warna saat dihover */
+}
+
+/* Kustomisasi warna teks pada item dropdown */
+.navbar-nav .dropdown-menu .dropdown-item {
+color: #000000 !important; /* Ganti dengan warna yang Anda inginkan */
+}
+
+.navbar-nav .dropdown-menu .dropdown-item:hover {
+color: #57A9CF !important; /* Warna saat dihover */
+}
+
+/* Kustomisasi warna teks pada judul NavDropdown */
+.navbar-nav .nav-link.dropdown-toggle.custom-nav-link {
+color: #000000 !important; /* Ganti dengan warna yang Anda inginkan */
+}
+
+/* Kustomisasi warna teks pada judul NavDropdown sebelum dropdown diklik */
+.navbar-nav .nav-link.dropdown-toggle.custom-nav-link:focus {
+color: #000000 !important; /* Ganti dengan warna yang Anda inginkan */
+}
+
+.custom-login-link {
+    background-color: #57A9CF;
+    border-radius: 5px;
+    color: white !important;
+    padding: 7px 7px !important;
+    display: inline-block; 
+    text-decoration: none;
+    max-width: none !important;
+    box-sizing: border-box; 
+    margin: 0 !important;
+}
+
+
+.custom-login-link a{
+    padding-left: 0px;
+    margin: 0 !important;
+}
+.custom-login-link:hover {
+  background-color:  #4788a7;
+  
+}
+
+.content{
+flex:1
+}
+
+.footer {
+  background-color: #2c3e50;
+  color: #fff;
+  padding: 20px 0;
+}
+
+.footer h5 {
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer ul li {
+  margin-bottom: 10px;
+}
+
+.footer ul li a {
+  color: #bdc3c7;
+  text-decoration: none;
+}
+
+.footer ul li a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  border-top: 1px solid #bdc3c7;
+  padding-top: 10px;
+  margin-top: 20px;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+.container-head {
+  padding: 0 15px;
+}
+
+.custom-nav-link {
+  color: #000;
+}
+
+.custom-login-link {
+  color: #57A9CF;
+}
+
+.custom-nav-link:hover,
+.custom-login-link:hover {
+  color: #4788a7;
+}
+
+.dark-mode .custom-nav-link,
+.dark-mode .custom-login-link {
+  color: #fff;
+}
+
+.dark-mode .custom-nav-link:hover,
+.dark-mode .custom-login-link:hover {
+  color: #4788a7;
+}
+
+.footer {
+  background-color: #2c3e50;
+  color: #fff;
+  padding: 40px 0;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #bdc3c7;
+}
+
+.footer-logo {
+  width: 60px;
+  margin-bottom: 15px;
+}
+
+.footer h5 {
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer ul li {
+  margin-bottom: 10px;
+}
+
+.footer ul li a {
+  color: #bdc3c7;
+  text-decoration: none;
+}
+
+.footer ul li a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  padding-top: 20px;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.social-icons a {
+  color: #bdc3c7;
+  margin: 0 10px;
+  font-size: 18px;
+}
+
+.social-icons a:hover {
+  color: #fff;
+}
+
+.container-head {
+  padding: 0 15px;
+}
+
+.custom-nav-link {
+  color: #000;
+}
+
+.custom-login-link {
+  color: #57A9CF;
+}
+
+.custom-nav-link:hover,
+.custom-login-link:hover {
+  color: #4788a7;
+}
+
+.dark-mode .custom-nav-link,
+.dark-mode .custom-login-link {
+  color: #fff;
+}
+
+.dark-mode .custom-nav-link:hover,
+.dark-mode .custom-login-link:hover {
+  color: #4788a7;
+}
+
+
+
+.footer-logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.footer-logo {
+  margin-right: 10px;
+}
+
+
+/* DARK MODE */
+
+.dark-mode {
+background-color: #454545;
+color: #ffffff;
+}
+
+.dark-mode .navbar,
+.dark-mode .navbar-brand,
+.dark-mode .custom-nav-link,
+.dark-mode .custom-login-link,
+.dark-mode .nav-link {
+color: #ffffff !important;
+}
+
+.dark-mode .custom-nav-link.active,
+.dark-mode .custom-login-link.active,
+.dark-mode .nav-link.active {
+color: #57A9CF !important;
+}
+.dark-mode .custom-nav-link:hover,
+.dark-mode .custom-login-link:hover,
+.dark-mode .nav-link:hover {
+color: #57A9CF !important;
+}
+
+.dark-mode .containerNotic{
+background-color: #2a2a2a;
+}
+
+.dark-mode .custom-nav-link.active::after,
+.dark-mode .custom-login-link.active::after {
+background-color: #ffffff;
+}
