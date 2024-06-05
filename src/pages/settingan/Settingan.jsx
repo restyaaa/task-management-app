@@ -132,6 +132,9 @@ const Settingan = () => {
                 </Form>
               </Card.Body>
             </Card>
+            <Button variant="danger" className="mt-3" onClick={signOutUser}>
+              Logout
+            </Button>
           </Col>
         </Row>
       </Container>

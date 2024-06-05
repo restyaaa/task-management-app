@@ -5,3 +5,12 @@
 body {
   font-family: 'Poppins', sans-serif; /* Set font Poppins untuk seluruh teks */
 }
+.protected-route-container {
+  display:flex;
+}
+
+
+.component-container {
+  flex: 1; /* Sisanya untuk konten utama */
+  padding: 20px; /* Padding untuk konten utama */
+}
