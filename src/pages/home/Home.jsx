@@ -97,7 +97,7 @@ const Home = () => {
       <img
         src={wavedown} // Ganti dengan path gambar yang sesuai
         alt="Notic Illustration"
-        className="img-fluid"
+        className="img-fluid mb-5"
       />
     </Container>
   );

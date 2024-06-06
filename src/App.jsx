@@ -11,6 +11,8 @@ import Register from "./pages/register/register";
 import DashboardUser from "./pages/dahsboardUser/DashboardUser";
 import Sidebar from "./pages/sidebar/Sidebar";
 import Settingan from "./pages/settingan/Settingan";
+import DashboardAdmin from "./pages/dashboardAdmin/DashboardAdmin"; // Import komponen baru
+import SidebarAdmin from "./pages/sidebarAdmin/SidebarAdmin"; // Import komponen baru
 import { AuthProvider, AuthContext } from "./context/AuthContext";
 import { ThemeProvider } from "./context/ThemeContext";
 
@@ -34,6 +36,10 @@ function App() {
             <Route
               path="/settingan"
               element={<ProtectedRoute component={Settingan} />}
+            />
+            <Route
+              path="/dashboardadmin"
+              element={<ProtectedRouteAdmin component={DashboardAdmin} />}
             />
           </Routes>
         </BrowserRouter>
@@ -60,6 +66,18 @@ const ProtectedRoute = ({ component: Component }) => {
   return user ? (
     <div className="protected-route-container">
       <Sidebar user={user} />
+      <Component user={user} />
+    </div>
+  ) : (
+    <Navigate to="/login" />
+  );
+};
+
+const ProtectedRouteAdmin = ({ component: Component }) => {
+  const { user } = React.useContext(AuthContext);
+  return user ? (
+    <div className="protected-route-container">
+      <SidebarAdmin user={user} />
       <Component user={user} />
     </div>
   ) : (

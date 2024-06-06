@@ -29,11 +29,17 @@ const Login = () => {
       console.log("Response dari server:", data);
 
       if (response.ok) {
-        const { token, ...user } = data;
+        const { token, role, ...user } = data; // Asumsikan response berisi field 'role'
         localStorage.setItem("token", token);
         login(user);
         console.log("Login berhasil, mengarahkan ke dashboard...");
-        navigate("/DashboardUser");
+
+        // Redirect berdasarkan peran pengguna
+        if (role === "admin") {
+          navigate("/dashboardadmin");
+        } else {
+          navigate("/dashboarduser");
+        }
       } else {
         setError(data.message);
       }

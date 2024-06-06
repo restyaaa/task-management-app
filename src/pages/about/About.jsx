@@ -6,6 +6,8 @@ import aboutImage from "../../assets/about.png";
 import restya from "../../assets/restya.jpeg"
 import yoga from "../../assets/yoga.jpeg"
 import dino from "../../assets/dino.jpg"
+import rizal from "../../assets/rizal.jpg"
+import fauzi from "../../assets/pauji.jpg"
 
 
 const ContactUs = () => {
@@ -13,9 +15,8 @@ const ContactUs = () => {
     { name: "Bagas Restya E.", role: "Lead Developer", image: restya },
     { name: "Maulana Arya Yoga", role: "Front-End Developer", image: yoga },
     { name: "Aldino Marsel P.", role: "Front-End Developer", image: dino },
-    { name: "Mohammad Fauzi H.", role: "Back-End Developer", image: yoga },
-    { name: "Ahmad Rizal B.", role: "Back-End Developer", image: yoga },
-    
+    { name: "Mohammad Fauzi H.", role: "Back-End Developer", image: rizal },
+    { name: "Ahmad Rizal B.", role: "Back-End Developer", image: fauzi },
   ];
 
   return (

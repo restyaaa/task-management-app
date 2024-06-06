@@ -1,0 +1,139 @@
+/* sidebar.css */
+.sidebar-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  z-index: 1;
+  position: sticky;
+  top: 0;
+  /* Lebar sidebar */
+  background-color: white; /* Warna background sidebar */
+}
+
+.sidebar {
+  background-color: white;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
+  transition: none;
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+}
+
+.profile-picture {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.profile-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.username {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.email {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.email {
+  font-size: 9px;
+}
+
+.logo {
+  width: 18px;
+  height: 15px;
+  margin: 0;
+}
+
+.activeClicked {
+  background-color: #57A9CF !important;
+  color: #ffffff !important;
+  border-radius: 20px !important;
+}
+
+.sc-Nxspf {
+  font-weight: bold;
+}
+
+.sc-Nxspf:hover {
+  font-weight: bold;
+  color: #57A9CF;
+}
+
+.logout-button:hover {
+  background-color: red; /* Mengubah warna background saat tombol dihover */
+  color: white; /* Mengubah warna teks saat tombol dihover */
+}
+
+a.activeClicked .sc-Nxspf {
+  background-color: #57A9CF !important;
+  color: #ffffff !important;
+  border-radius: 20px !important;
+}
+
+a.activeClicked .sc-Nxspf::before,
+a.activeClicked .sc-Nxspf::after {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+li.activeClicked,
+li.activeClicked::before,
+li.activeClicked::after {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+li {
+  background-color: transparent !important;
+}
+
+.sc-cfxfcM {
+  background-color: transparent !important;
+}
+
+.btn-logout {
+  border: none;
+  padding: 5px 10px;
+  color: rgb(242, 32, 32) !important;
+  font-weight: bold;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+.btn-logout:hover {
+  color: rgb(186, 9, 9) !important;
+}
+
+.btn-logout:after {
+  color: rgb(186, 9, 9) !important;
+}
+
+/* Untuk dark mode *//* Tambahkan aturan CSS untuk dark mode dan light mode */
+.sidebar-container.dark-mode {
+  background-color: #333333;
+}
+
+.sidebar-container.dark-mode .logo-container a,
+.sidebar-container.dark-mode .profile-details,
+.sidebar-container.dark-mode .CDBSidebarMenuItem {
+  color: white;
+}
+
+.sidebar-container.light-mode {
+  background-color: white;
+}
+
+.sidebar-container.light-mode .logo-container a,
+.sidebar-container.light-mode .profile-details,
+.sidebar-container.light-mode .CDBSidebarMenuItem {
+  color: black;
+}

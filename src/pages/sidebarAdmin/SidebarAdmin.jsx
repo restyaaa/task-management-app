@@ -6,17 +6,14 @@ import {
   CDBSidebarHeader,
   CDBSidebarMenu,
   CDBSidebarMenuItem,
-  CDBListGroup,
-  CDBListGroupItem,
-  CDBContainer
 } from "cdbreact";
 import { NavLink } from "react-router-dom";
-import "./sidebar.css";
+import "./sidebarAdmin.css";
 import profilePicture from "../../assets/restya.jpeg";
 import logo from "../../assets/letter-n.png";
 import { ThemeContext } from "../../context/ThemeContext";
 
-const Sidebar = ({ user }) => {
+const SidebarAdmin = ({ user }) => {
   const { logout } = useContext(AuthContext);
   const { darkMode } = useContext(ThemeContext);
 
@@ -55,7 +52,7 @@ const Sidebar = ({ user }) => {
         <CDBSidebarContent className="sidebar-content">
           <CDBSidebarMenu>
             <NavLink
-              to="/dashboarduser"
+              to="/dashboardadmin"
               className={({ isActive }) => (isActive ? "activeClicked" : "")}
             >
               <CDBSidebarMenuItem
@@ -63,6 +60,17 @@ const Sidebar = ({ user }) => {
                 style={{ color: darkMode ? "white" : "black" }}
               >
                 Dashboard
+              </CDBSidebarMenuItem>
+            </NavLink>
+            <NavLink
+              to="/userlist"
+              className={({ isActive }) => (isActive ? "activeClicked" : "")}
+            >
+              <CDBSidebarMenuItem
+                icon="user"
+                style={{ color: darkMode ? "white" : "black" }}
+              >
+                User List
               </CDBSidebarMenuItem>
             </NavLink>
             <NavLink
@@ -75,18 +83,6 @@ const Sidebar = ({ user }) => {
               >
                 Settings
               </CDBSidebarMenuItem>
-            </NavLink>
-            <NavLink
-              to="/project"
-              className={({ isActive }) => (isActive ? "activeClicked" : "")}
-            >
-              <CDBSidebarMenuItem
-                icon="folder-open"
-                style={{ color: darkMode ? "white" : "black" }}
-              >
-                Project
-              </CDBSidebarMenuItem>
-              
             </NavLink>
             <div
               style={{
@@ -107,4 +103,4 @@ const Sidebar = ({ user }) => {
   );
 };
 
-export default Sidebar;
+export default SidebarAdmin;
