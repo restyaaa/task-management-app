@@ -109,7 +109,7 @@ const Login = () => {
               </a>
             </div>
 
-            <div className="text-left mb-3">
+            <div className="text-left mb-3 login-putih">
               Don't have an account?{" "}
               <a href="/register" className="text-decoration-none text-social">
                 Register now
@@ -117,7 +117,7 @@ const Login = () => {
             </div>
 
             <div className="divider">
-              <span className="divider-text">or</span>
+              <span className="divider-text login-putih">or</span>
             </div>
 
             <div className="d-flex justify-content-center mb-2">
