@@ -27,7 +27,7 @@ const Settingan = () => {
         <Row className="mt-4">
           <Col md={6}>
             <Card className="mb-4 text-center">
-              <Card.Body>
+              <Card.Body className="card-body-setting">
                 <Card.Title>Profile Pic</Card.Title>
                 <Card.Text>
                   <img
@@ -44,7 +44,7 @@ const Settingan = () => {
           </Col>
           <Col md={6}>
             <Card className="mb-4 text-center">
-              <Card.Body>
+              <Card.Body className="card-body-setting">
                 <Card.Title>Change Your Theme</Card.Title>
                 <Card.Text>
                   <Form>
