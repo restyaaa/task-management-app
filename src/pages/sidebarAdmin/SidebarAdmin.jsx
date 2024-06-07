@@ -74,7 +74,7 @@ const SidebarAdmin = ({ user }) => {
               </CDBSidebarMenuItem>
             </NavLink>
             <NavLink
-              to="/settingan"
+              to="/settinganadmin"
               className={({ isActive }) => (isActive ? "activeClicked" : "")}
             >
               <CDBSidebarMenuItem

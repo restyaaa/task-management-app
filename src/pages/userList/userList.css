@@ -1,0 +1,62 @@
+
+/* Dark mode styles */
+
+.dark-mode .table {
+  color: #f8f9fa;
+  background-color: #343a40;
+}
+
+.dark-mode .table th,
+.dark-mode .table td {
+  border-top: 1px solid #ffffff;
+    color: #f8f9fa;
+    background-color: #343a40;
+}
+
+.dark-mode .table thead th {
+  border-bottom: 2px solid #ffffff;
+    color: #f8f9fa;
+}
+
+.dark-mode .table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.dark-mode .table-hover tbody tr:hover {
+  color: #f8f9fa;
+  background-color: rgba(255, 255, 255, 0.075);
+}
+
+/* Additional styling for buttons */
+.dark-mode .btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+.dark-mode .btn-danger:hover {
+  background-color: #c82333;
+  border-color: #bd2130;
+}
+
+.dark-mode .modal-content {
+  background-color: #343a40;
+  color: #f8f9fa;
+}
+
+.dark-mode .modal-header {
+  border-bottom: 1px solid #454d55;
+}
+
+.dark-mode .modal-footer {
+  border-top: 1px solid #454d55;
+}
+
+.dark-mode .btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+.dark-mode .btn-secondary:hover {
+  background-color: #5a6268;
+  border-color: #545b62;
+}

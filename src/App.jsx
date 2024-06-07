@@ -13,6 +13,8 @@ import Sidebar from "./pages/sidebar/Sidebar";
 import Settingan from "./pages/settingan/Settingan";
 import DashboardAdmin from "./pages/dashboardAdmin/DashboardAdmin"; // Import komponen baru
 import SidebarAdmin from "./pages/sidebarAdmin/SidebarAdmin"; // Import komponen baru
+import UserList from "./pages/userList/UserList";
+import SettinganAdmin from "./pages/settinganAdmin/SettinganAdmin";
 import { AuthProvider, AuthContext } from "./context/AuthContext";
 import { ThemeProvider } from "./context/ThemeContext";
 
@@ -40,6 +42,14 @@ function App() {
             <Route
               path="/dashboardadmin"
               element={<ProtectedRouteAdmin component={DashboardAdmin} />}
+            />
+            <Route
+              path="/userlist"
+              element={<ProtectedRouteAdmin component={UserList} />}
+            />
+            <Route
+              path="/settinganadmin"
+              element={<ProtectedRouteAdmin component={SettinganAdmin} />}
             />
           </Routes>
         </BrowserRouter>
