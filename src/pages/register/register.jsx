@@ -80,7 +80,7 @@ const Register = () => {
       </div>
       <div className="register-container">
         <Card className="register-card">
-          <Card.Body>
+          <Card.Body className="register-card-body">
           <div className="back-to-landing mb-3">
               <Link to="/" className="text-decoration-none"> 
                 <FaArrowLeft className="me-2" />
