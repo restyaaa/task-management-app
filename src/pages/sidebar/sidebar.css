@@ -137,3 +137,78 @@ li {
 .sidebar-container.light-mode .CDBSidebarMenuItem {
   color: black;
 }
+
+.add-new-project{
+  color: #5dc2f1 !important;
+}
+.collapse-scroll {
+  max-height: 180px; /* Adjust the height as needed */
+  overflow-y: auto;
+}
+
+.sidebar-container {
+  height: 100vh;
+
+}
+
+.light-mode {
+  background-color: white;
+  color: black;
+}
+
+.dark-mode {
+  background-color: #333;
+  color: white;
+}
+
+.profile-picture {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.profile-details {
+  margin-left: 10px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.add-new-project {
+  padding-left: 10px;
+}
+
+
+/* Custom scrollbar styles */
+.collapse-scroll::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+  
+}
+
+.collapse-scroll::-webkit-scrollbar-track {
+  background: transparent; /* Background of the track */
+}
+
+.collapse-scroll::-webkit-scrollbar-thumb {
+  background: #57a9cf71; /* Scrollbar thumb with reduced opacity */
+  border-radius: 4px; /* Rounded corners for the scrollbar thumb */
+}
+
+.collapse-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.4); /* Slightly more visible on hover */
+}
