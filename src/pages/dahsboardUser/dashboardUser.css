@@ -1,7 +1,10 @@
+.card-hover {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
 .card-hover:hover {
-    transform: scale(1.05);
-    transition: transform 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .status-not-started {
@@ -49,16 +52,14 @@
     color: #fff;
 }
 
-/* Styles for list items in dark mode */
 .dark-mode .list-group-item {
     background-color: #333333;
-    /* Dark background color for list items */
     color: #fff;
-    /* Text color for list items in dark mode */
 }
-
-/* Styles for list items in dark mode when hovered */
 .dark-mode .list-group-item:hover {
     background-color: #222;
-    /* Darker background color on hover */
+}
+
+.card-lebar {
+    width: 100%;
 }

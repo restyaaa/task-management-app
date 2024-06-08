@@ -78,7 +78,7 @@ const DashboardUser = () => {
             </Col>
           </Row>
           <Row className="mb-3">
-            <Col md={6}>
+            <Col md={8}>
               <Card className="card-hover">
                 <Card.Body>
                   <Card.Title className="fw-bold">Tasks Done</Card.Title>
@@ -86,7 +86,7 @@ const DashboardUser = () => {
                 </Card.Body>
               </Card>
             </Col>
-            <Col md={6}>
+            <Col md={4}>
               <Card className="card-hover">
                 <Card.Body>
                   <Card.Title>Summary</Card.Title>
