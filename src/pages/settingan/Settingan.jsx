@@ -8,7 +8,7 @@ import "./settingan.css";
 const Settingan = () => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
-  const { darkMode, toggleDarkMode } = useContext(ThemeContext); // Dapatkan nilai darkMode dan fungsi toggleDarkMode dari ThemeContext
+  const { darkMode, toggleDarkMode } = useContext(ThemeContext); // Get darkMode value and toggleDarkMode function from ThemeContext
 
   useEffect(() => {
     if (!user) {
@@ -16,8 +16,8 @@ const Settingan = () => {
     }
   }, [user, navigate]);
 
-  const signOutUser = () => {
-    // Implement logout process here
+  const handleProfilePicChange = () => {
+    // Implement profile picture change logic here
   };
 
   return (
@@ -26,35 +26,37 @@ const Settingan = () => {
         <h4 className="fw-bold">Settings</h4>
         <Row className="mt-4">
           <Col md={6}>
-            <Card className="mb-4 text-center">
+            <Card className="mb-4 card-setting">
               <Card.Body className="card-body-setting">
                 <Card.Title>Profile Pic</Card.Title>
-                <Card.Text>
+                <Card.Text className="d-flex align-items-center">
                   <img
-                    src="path-to-your-profile-pic.jpg"
+                    src="src/assets/restya.jpeg"
                     alt="Profile"
-                    className="rounded-circle"
-                    width="100"
-                    height="100"
+                    className="rounded-circle profile-pic me-3"
                   />
-                  <div>New Profile Pic</div>
+                  <div>
+                    <Button variant="primary" onClick={handleProfilePicChange} className="mt-3">
+                      New Profile Pic
+                    </Button>
+                  </div>
                 </Card.Text>
               </Card.Body>
             </Card>
           </Col>
           <Col md={6}>
-            <Card className="mb-4 text-center">
+            <Card className="mb-4 text-center card-setting">
               <Card.Body className="card-body-setting">
                 <Card.Title>Change Your Theme</Card.Title>
                 <Card.Text>
                   <Form>
-                    <div className="d-flex align-items-center justify-content-center">
-                      <span>What do you prefer?</span>
+                    <div className="theme-switcher d-flex align-items-center justify-content-center">
+                      <span className="me-2">What do you prefer?</span>
                       <Form.Check
                         type="switch"
                         id="theme-switch"
                         checked={darkMode}
-                        onChange={toggleDarkMode} // Gunakan toggleDarkMode untuk mengaktifkan atau menonaktifkan dark mode
+                        onChange={toggleDarkMode} // Use toggleDarkMode to enable or disable dark mode
                         className="ms-2"
                       />
                       <span className="ms-2">{darkMode ? "🌜" : "🌞"}</span>
@@ -67,7 +69,7 @@ const Settingan = () => {
         </Row>
         <Row>
           <Col md={6}>
-            <Card className="mb-4">
+            <Card className="mb-4 card-setting">
               <Card.Body>
                 <Card.Title>Change Username</Card.Title>
                 <Form>
@@ -79,18 +81,20 @@ const Settingan = () => {
                     <Form.Label>New Username</Form.Label>
                     <Form.Control type="text" placeholder="New Username" />
                   </Form.Group>
-                  <Button variant="secondary" className="mt-3 me-2">
-                    Cancel
-                  </Button>
-                  <Button variant="danger" className="mt-3">
-                    Confirm
-                  </Button>
+                  <div className="d-flex justify-content-end">
+                    <Button variant="secondary" className="mt-3 me-2">
+                      Cancel
+                    </Button>
+                    <Button variant="danger" className="mt-3">
+                      Confirm
+                    </Button>
+                  </div>
                 </Form>
               </Card.Body>
             </Card>
           </Col>
           <Col md={6}>
-            <Card className="mb-4">
+            <Card className="mb-4 card-setting">
               <Card.Body>
                 <Card.Title>Change Password</Card.Title>
                 <Form>
@@ -112,12 +116,14 @@ const Settingan = () => {
                       placeholder="Confirm Password"
                     />
                   </Form.Group>
-                  <Button variant="secondary" className="mt-3 me-2">
-                    Cancel
-                  </Button>
-                  <Button variant="danger" className="mt-3">
-                    Confirm
-                  </Button>
+                  <div className="d-flex justify-content-end">
+                    <Button variant="secondary" className="mt-3 me-2">
+                      Cancel
+                    </Button>
+                    <Button variant="danger" className="mt-3">
+                      Confirm
+                    </Button>
+                  </div>
                 </Form>
               </Card.Body>
             </Card>

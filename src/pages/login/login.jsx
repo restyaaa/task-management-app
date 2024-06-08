@@ -62,7 +62,7 @@ const Login = () => {
       </div>
       <div className="login-container">
         <Card className="login-card mt-2">
-          <Card.Body>
+          <Card.Body className="login-card-body">
             <div className="back-to-landing mb-3">
               <a href="/" className="text-decoration-none">
                 <FaArrowLeft className="me-2" />

@@ -153,8 +153,8 @@
   color: #fff;
 }
 
-.dark-mode .register-card {
-  background-color: #333;
+.dark-mode .register-card-body {
+  background-color: #1e1e1e;
 }
 
 .dark-mode .register-putih {

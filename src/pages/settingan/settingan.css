@@ -1,5 +1,7 @@
 .konten-setting {
   width: 100%;
+  background: var(--background-color);
+  color: var(--text-color);
 }
 
 .card-title {
@@ -7,10 +9,10 @@
 }
 
 .card-body-setting {
-  text-align: center;
+  text-align: left;
 }
 
-.form-switch {
+.theme-switcher {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -27,20 +29,149 @@
 }
 
 body.dark-mode {
-  background-color: #121212;
-  color: #ffffff;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 body.dark-mode .card {
-  background-color: #1e1e1e;
+  background-color: var(--card-background);
 }
 
 body.dark-mode .btn-secondary {
-  background-color: #777;
-  border-color: #777;
+  background-color: var(--btn-secondary-background);
+  border-color: var(--btn-secondary-border);
 }
 
 body.dark-mode .btn-danger {
-  background-color: #ff5252;
-  border-color: #ff5252;
+  background-color: var(--btn-danger-background);
+  border-color: var(--btn-danger-border);
+}
+
+/* General Light Mode Styles */
+body.light-mode .konten-setting {
+  color: var(--text-color);
+}
+
+body.light-mode .card {
+  color: var(--text-color);
+}
+
+body.light-mode .form-control {
+  color: var(--text-color);
+}
+
+/* Dark Mode Styles */
+body.dark-mode .konten-setting {
+  color: var(--text-color);
+}
+
+body.dark-mode .card {
+  color: var(--text-color);
+}
+
+body.dark-mode .form-control {
+  color: var(--text-color);
+}
+
+.card-setting {
+  background: var(--card-background);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card-setting:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-body-setting {
+  padding: 2rem;
+}
+
+.profile-pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid var(--primary-color);
+  padding: 5px;
+}
+
+.btn-secondary, .btn-danger, .btn-primary {
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.btn-secondary:hover, .btn-danger:hover, .btn-primary:hover {
+  transform: scale(1.05);
+}
+
+.form-check-input:checked {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+/* Common Styles */
+body.light-mode, body.dark-mode {
+  --background-color: #ffffff;
+  --text-color: #000000;
+  --card-background: #f8f9fa;
+  --btn-secondary-background: #5c636a;
+  --btn-secondary-border: #5c636a;
+  --btn-danger-background: #dc3545;
+  --btn-danger-border: #dc3545;
+  --primary-color: #007bff;
+}
+
+body.dark-mode {
+  --background-color: #121212;
+  --text-color: #ffffff;
+  --card-background: #1e1e1e;
+  --btn-secondary-background: #777;
+  --btn-secondary-border: #777;
+  --btn-danger-background: #ff5252;
+  --btn-danger-border: #ff5252;
+  --primary-color: #5cadd1;
+}
+
+/* Responsiveness */
+@media (max-width: 576px) {
+  .card-body-setting {
+    padding: 1rem;
+  }
+
+  .profile-pic {
+    width: 80px;
+    height: 80px;
+  }
+
+  .card-setting {
+    margin-bottom: 1.5rem;
+  }
+
+  .btn-secondary, .btn-danger, .btn-primary {
+    width: 100%;
+  }
+
+  .d-flex {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .d-flex .me-3 {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+
+  .theme-switcher {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .theme-switcher span {
+    margin-bottom: 0.5rem;
+  }
+
+  .theme-switcher .form-check {
+    align-self: flex-end;
+  }
 }
