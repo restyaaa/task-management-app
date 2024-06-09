@@ -56,7 +56,7 @@ const DashboardUser = () => {
                     <Card.Title className="fw-bold">Tasks</Card.Title>
                     <Card.Text className="card-text-custom">
                       <h1>125</h1>
-                      <p>Task</p>
+                      <p className="ms-2">Task</p>
                     </Card.Text>
                   </div>
                 </Card.Body>
@@ -70,7 +70,7 @@ const DashboardUser = () => {
                     <Card.Title className="fw-bold">Current Project</Card.Title>
                     <Card.Text className="card-text-custom">
                       <h1>1 / 3</h1>
-                      <p>You completed over 33% projects</p>
+                      <p className="ms-2">You completed over 33% projects</p>
                     </Card.Text>
                   </div>
                 </Card.Body>
