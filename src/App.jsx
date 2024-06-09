@@ -15,6 +15,7 @@ import DashboardAdmin from "./pages/dashboardAdmin/DashboardAdmin"; // Import ko
 import SidebarAdmin from "./pages/sidebarAdmin/SidebarAdmin"; // Import komponen baru
 import UserList from "./pages/userList/UserList";
 import SettinganAdmin from "./pages/settinganAdmin/SettinganAdmin";
+import Project from "./pages/project/Project";
 import { AuthProvider, AuthContext } from "./context/AuthContext";
 import { ThemeProvider } from "./context/ThemeContext";
 
@@ -38,6 +39,10 @@ function App() {
             <Route
               path="/settingan"
               element={<ProtectedRoute component={Settingan} />}
+            />
+            <Route
+              path="/project"
+              element={<ProtectedRoute component={Project} />}
             />
             <Route
               path="/dashboardadmin"
