@@ -1,14 +1,22 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
 import { AuthContext } from "../../context/AuthContext";
-import { ThemeContext } from "../../context/ThemeContext"; // Import ThemeContext
+import { ThemeContext } from "../../context/ThemeContext";
+import { FiSun, FiMoon } from 'react-icons/fi';
+import { AiOutlineCloudUpload } from 'react-icons/ai';
 import "./settingan.css";
 
 const Settingan = () => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
-  const { darkMode, toggleDarkMode } = useContext(ThemeContext); // Get darkMode value and toggleDarkMode function from ThemeContext
+  const { darkMode, toggleDarkMode } = useContext(ThemeContext);
+  const [profilePic, setProfilePic] = useState("src/assets/restya.jpeg");
+  const [newUsername, setNewUsername] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  const fileInputRef = useRef(null);
 
   useEffect(() => {
     if (!user) {
@@ -16,112 +24,143 @@ const Settingan = () => {
     }
   }, [user, navigate]);
 
-  const handleProfilePicChange = () => {
-    // Implement profile picture change logic here
+  const handleProfilePicChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setProfilePic(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleCancel = () => {
+    setNewUsername("");
+    setNewPassword("");
+    setConfirmPassword("");
+  };
+
+  const handleConfirm = () => {
+    if (newPassword !== confirmPassword) {
+      alert("Passwords do not match!");
+      return;
+    }
+    // Implement the confirm logic here
+    alert("Changes saved successfully!");
   };
 
   return (
-    <div style={{ display: "flex" }} className="konten-setting">
+    <div className="konten-setting">
       <Container className="mt-4">
-        <h4 className="fw-bold">Settings</h4>
+        <h4 className="fw-bold mb-4">Settings</h4>
         <Row className="mt-4">
-          <Col md={6}>
+          <Col md={4}>
             <Card className="mb-4 card-setting">
               <Card.Body className="card-body-setting">
-                <Card.Title>Profile Pic</Card.Title>
-                <Card.Text className="d-flex align-items-center">
-                  <img
-                    src="src/assets/restya.jpeg"
-                    alt="Profile"
-                    className="rounded-circle profile-pic me-3"
-                  />
-                  <div>
-                    <Button variant="primary" onClick={handleProfilePicChange} className="mt-3">
-                      New Profile Pic
-                    </Button>
+                <Card.Title className="mb-4">Profile Pic</Card.Title>
+                <div className="d-flex flex-column align-items-center">
+                  <div className="profile-pic-wrapper position-relative">
+                    <img
+                      src={profilePic}
+                      alt="Profile"
+                      className="rounded-circle profile-pic mb-3"
+                    />
                   </div>
-                </Card.Text>
+                  <Button
+                    variant="primary"
+                    className="mt-2"
+                    onClick={() => fileInputRef.current.click()}
+                  >
+                    Change Profile Pic
+                    <input
+                      type="file"
+                      ref={fileInputRef}
+                      onChange={handleProfilePicChange}
+                      accept="image/*"
+                      className="d-none"
+                    />
+                  </Button>
+                </div>
               </Card.Body>
             </Card>
-          </Col>
-          <Col md={6}>
-            <Card className="mb-4 text-center card-setting">
-              <Card.Body className="card-body-setting">
-                <Card.Title>Change Your Theme</Card.Title>
-                <Card.Text>
-                  <Form>
-                    <div className="theme-switcher d-flex align-items-center justify-content-center">
-                      <span className="me-2">What do you prefer?</span>
-                      <Form.Check
-                        type="switch"
-                        id="theme-switch"
-                        checked={darkMode}
-                        onChange={toggleDarkMode} // Use toggleDarkMode to enable or disable dark mode
-                        className="ms-2"
-                      />
-                      <span className="ms-2">{darkMode ? "🌜" : "🌞"}</span>
-                    </div>
-                  </Form>
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
-        </Row>
-        <Row>
-          <Col md={6}>
             <Card className="mb-4 card-setting">
-              <Card.Body>
-                <Card.Title>Change Username</Card.Title>
+              <Card.Body className="card-body-setting text-center">
+                <Card.Title className="mb-2">Change Your Theme</Card.Title>
+                <div className="theme-switcher d-flex align-items-center justify-content-center">
+                  <span className="me-2">What do you prefer?</span>
+                  <Button
+                    onClick={toggleDarkMode}
+                    variant="outline-secondary"
+                    className="ms-2 theme-button"
+                  >
+                    {darkMode ? <FiSun /> : <FiMoon />}
+                  </Button>
+                </div>
+              </Card.Body>
+            </Card>
+          </Col>
+          <Col md={7}>
+            <Card className="mb-4 card-setting">
+              <Card.Body className="card-body-setting">
+                <Card.Title className="mb-0">Change Username</Card.Title>
                 <Form>
                   <Form.Group controlId="formCurrentUsername">
                     <Form.Label>Current Username</Form.Label>
-                    <Form.Control type="text" placeholder="Current Username" />
+                    <Form.Control type="text" placeholder="Enter current username" readOnly value={user?.username || ''} />
                   </Form.Group>
-                  <Form.Group controlId="formNewUsername" className="mt-3">
+                  <Form.Group controlId="formNewUsername" className="mt-1">
                     <Form.Label>New Username</Form.Label>
-                    <Form.Control type="text" placeholder="New Username" />
+                    <Form.Control
+                      type="text"
+                      placeholder="Enter new username"
+                      value={newUsername}
+                      onChange={(e) => setNewUsername(e.target.value)}
+                    />
                   </Form.Group>
-                  <div className="d-flex justify-content-end">
-                    <Button variant="secondary" className="mt-3 me-2">
+                  <div className="d-flex justify-content-end mt-4">
+                    <Button variant="secondary" onClick={handleCancel} className="me-3">
                       Cancel
                     </Button>
-                    <Button variant="danger" className="mt-3">
-                      Confirm
+                    <Button variant="danger" onClick={handleConfirm}>
+                      Save Changes
                     </Button>
                   </div>
                 </Form>
               </Card.Body>
             </Card>
-          </Col>
-          <Col md={6}>
             <Card className="mb-4 card-setting">
-              <Card.Body>
-                <Card.Title>Change Password</Card.Title>
+              <Card.Body className="card-body-setting">
+                <Card.Title className="mb-0">Change Password</Card.Title>
                 <Form>
                   <Form.Group controlId="formCurrentPassword">
                     <Form.Label>Current Password</Form.Label>
-                    <Form.Control
-                      type="password"
-                      placeholder="Current Password"
-                    />
+                    <Form.Control type="password" placeholder="Enter current password" />
                   </Form.Group>
                   <Form.Group controlId="formNewPassword" className="mt-3">
                     <Form.Label>New Password</Form.Label>
-                    <Form.Control type="password" placeholder="New Password" />
-                  </Form.Group>
-                  <Form.Group controlId="formConfirmPassword" className="mt-3">
-                    <Form.Label>Confirm Password</Form.Label>
                     <Form.Control
                       type="password"
-                      placeholder="Confirm Password"
+                      placeholder="Enter new password"
+                      value={newPassword}
+                      onChange={(e) => setNewPassword(e.target.value)}
                     />
                   </Form.Group>
-                  <div className="d-flex justify-content-end">
-                    <Button variant="secondary" className="mt-3 me-2">
+                  <Form.Group controlId="formConfirmPassword" className="mt-3">
+                    <Form.Label>Confirm New Password</Form.Label>
+                    <Form.Control
+                      type="password"
+                      placeholder="Confirm new password"
+                      value={confirmPassword}
+                      onChange={(e) => setConfirmPassword(e.target.value)}
+                    />
+                  </Form.Group>
+                  <div className="d-flex justify-content-end mt-4">
+                    <Button variant="secondary" onClick={handleCancel} className="me-3">
                       Cancel
                     </Button>
-                    <Button variant="danger" className="mt-3">
-                      Confirm
+                    <Button variant="danger" onClick={handleConfirm}>
+                      Change Password
                     </Button>
                   </div>
                 </Form>

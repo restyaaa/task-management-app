@@ -1,7 +1,33 @@
+body.light-mode,
+body.dark-mode {
+  --background-color: #ffffff;
+  --text-color: #000000;
+  --card-background: #f8f9fa;
+  --btn-secondary-background: #5c636a;
+  --btn-secondary-border: #5c636a;
+  --btn-danger-background: #dc3545;
+  --btn-danger-border: #dc3545;
+  --primary-color: #007bff;
+  --profile-pic-border-light: #007bff;
+  --profile-pic-border-dark: #5cadd1;
+}
+
+body.dark-mode {
+  --background-color: #121212;
+  --text-color: #ffffff;
+  --card-background: #1e1e1e;
+  --btn-secondary-background: #777;
+  --btn-secondary-border: #777;
+  --btn-danger-background: #ff5252;
+  --btn-danger-border: #ff5252;
+  --primary-color: #5cadd1;
+}
+
 .konten-setting {
   width: 100%;
   background: var(--background-color);
   color: var(--text-color);
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
 .card-title {
@@ -10,6 +36,10 @@
 
 .card-body-setting {
   text-align: left;
+  padding: 2rem;
+  border-radius: 10px;
+  background: var(--card-background);
+  transition: background 0.3s ease-in-out;
 }
 
 .theme-switcher {
@@ -18,23 +48,16 @@
   justify-content: center;
 }
 
-.btn-secondary {
-  background-color: #5c636a;
-  border-color: #5c636a;
+.btn-secondary,
+.btn-danger,
+.btn-primary {
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
-.btn-danger {
-  background-color: #dc3545;
-  border-color: #dc3545;
-}
-
-body.dark-mode {
-  background-color: var(--background-color);
-  color: var(--text-color);
-}
-
-body.dark-mode .card {
-  background-color: var(--card-background);
+.btn-secondary:hover,
+.btn-danger:hover,
+.btn-primary:hover {
+  transform: scale(1.05);
 }
 
 body.dark-mode .btn-secondary {
@@ -47,30 +70,25 @@ body.dark-mode .btn-danger {
   border-color: var(--btn-danger-border);
 }
 
-/* General Light Mode Styles */
-body.light-mode .konten-setting {
-  color: var(--text-color);
+.profile-pic {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  padding: 5px;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
 }
 
-body.light-mode .card {
-  color: var(--text-color);
+.profile-pic:hover {
+  transform: scale(1.1);
 }
 
-body.light-mode .form-control {
-  color: var(--text-color);
+.theme-button {
+  transition: transform 0.3s ease-in-out;
 }
 
-/* Dark Mode Styles */
-body.dark-mode .konten-setting {
-  color: var(--text-color);
-}
-
-body.dark-mode .card {
-  color: var(--text-color);
-}
-
-body.dark-mode .form-control {
-  color: var(--text-color);
+.theme-button:hover {
+  transform: rotate(20deg);
 }
 
 .card-setting {
@@ -85,24 +103,19 @@ body.dark-mode .form-control {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-.card-body-setting {
-  padding: 2rem;
+body.light-mode,
+body.dark-mode .konten-setting {
+  color: var(--text-color);
 }
 
-.profile-pic {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  border: 2px solid var(--primary-color);
-  padding: 5px;
+body.light-mode .card,
+body.dark-mode .card {
+  color: var(--text-color);
 }
 
-.btn-secondary, .btn-danger, .btn-primary {
-  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
-}
-
-.btn-secondary:hover, .btn-danger:hover, .btn-primary:hover {
-  transform: scale(1.05);
+body.light-mode .form-control,
+body.dark-mode .form-control {
+  color: var(--text-color);
 }
 
 .form-check-input:checked {
@@ -110,45 +123,23 @@ body.dark-mode .form-control {
   border-color: var(--primary-color);
 }
 
-/* Common Styles */
-body.light-mode, body.dark-mode {
-  --background-color: #ffffff;
-  --text-color: #000000;
-  --card-background: #f8f9fa;
-  --btn-secondary-background: #5c636a;
-  --btn-secondary-border: #5c636a;
-  --btn-danger-background: #dc3545;
-  --btn-danger-border: #dc3545;
-  --primary-color: #007bff;
-}
-
-body.dark-mode {
-  --background-color: #121212;
-  --text-color: #ffffff;
-  --card-background: #1e1e1e;
-  --btn-secondary-background: #777;
-  --btn-secondary-border: #777;
-  --btn-danger-background: #ff5252;
-  --btn-danger-border: #ff5252;
-  --primary-color: #5cadd1;
-}
-
-/* Responsiveness */
 @media (max-width: 576px) {
   .card-body-setting {
     padding: 1rem;
   }
 
   .profile-pic {
-    width: 80px;
-    height: 80px;
+    width: 100pxpx;
+    height: 100px;
   }
 
   .card-setting {
     margin-bottom: 1.5rem;
   }
 
-  .btn-secondary, .btn-danger, .btn-primary {
+  .btn-secondary,
+  .btn-danger,
+  .btn-primary {
     width: 100%;
   }
 

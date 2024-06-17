@@ -1,5 +1,6 @@
 .card-hover {
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border-radius: 10px; /* Add border radius */
 }
 
 .card-hover:hover {
@@ -56,10 +57,15 @@
     background-color: #333333;
     color: #fff;
 }
+
 .dark-mode .list-group-item:hover {
     background-color: #222;
 }
 
 .card-lebar {
     width: 100%;
+}
+
+.card-rounded {
+    border-radius: 10px; /* Ensure border radius */
 }

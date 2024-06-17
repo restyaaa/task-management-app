@@ -1,23 +1,23 @@
 import React, { useContext } from "react";
-import { AuthContext } from "../../context/AuthContext"; // Sesuaikan path jika diperlukan
+import { AuthContext } from "../../context/AuthContext"; // Adjust path if needed
 import { Container, Row, Col, Card, ListGroup } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
 import 'chart.js/auto';
-import './dashboardUser.css'; // Import CSS kustom
+import './dashboardUser.css'; // Import custom CSS
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
 const DashboardUser = () => {
-  const { user } = useContext(AuthContext); // Dapatkan data pengguna dari AuthContext
+  const { user } = useContext(AuthContext); // Get user data from AuthContext
 
   const data = {
     labels: ['April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
     datasets: [
       {
         label: 'Tasks Done',
-        data: [20, 30, 45, 60, 40, 55, 70, 60, 80], // Ganti dengan data sesungguhnya
+        data: [20, 30, 45, 60, 40, 55, 70, 60, 80], // Replace with actual data
         fill: false,
         borderColor: '#6c63ff',
         tension: 0.1,
@@ -49,8 +49,8 @@ const DashboardUser = () => {
           </Row>
           <Row className="mb-3">
             <Col>
-              <Card className="card-hover">
-                <Card.Body className="card-body-custom">
+              <Card className="card-hover card-lebar">
+                <Card.Body className="card-body-custom card-rounded">
                   <img src="public/Document.svg" alt="task" className="card-img" />
                   <div className="card-content">
                     <Card.Title className="fw-bold">Tasks</Card.Title>
@@ -63,8 +63,8 @@ const DashboardUser = () => {
               </Card>
             </Col>
             <Col>
-              <Card className="card-hover">
-                <Card.Body className="card-body-custom">
+              <Card className="card-hover card-lebar">
+                <Card.Body className="card-body-custom card-rounded">
                   <img src="public/Hotspot.svg" alt="current-project" className="card-img" />
                   <div className="card-content">
                     <Card.Title className="fw-bold">Current Project</Card.Title>
@@ -79,16 +79,16 @@ const DashboardUser = () => {
           </Row>
           <Row className="mb-3">
             <Col md={8}>
-              <Card className="card-hover">
-                <Card.Body>
+              <Card className="card-hover card-lebar">
+                <Card.Body className="card-rounded">
                   <Card.Title className="fw-bold">Tasks Done</Card.Title>
                   <Line data={data} options={options} />
                 </Card.Body>
               </Card>
             </Col>
             <Col md={4}>
-              <Card className="card-hover">
-                <Card.Body>
+              <Card className="card-hover card-lebar">
+                <Card.Body className="card-rounded">
                   <Card.Title>Summary</Card.Title>
                   <ListGroup variant="flush">
                     <ListGroup.Item>

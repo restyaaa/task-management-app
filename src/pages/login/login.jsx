@@ -2,9 +2,9 @@ import React, { useState, useContext } from "react";
 import { Card, Button, Form } from "react-bootstrap";
 import { FaArrowLeft } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import "./login.css";
 import NoticLogo from "../../assets/letter-n.png";
 import { AuthContext } from "../../context/AuthContext";
+import "./login.css"; // File CSS untuk styling khusus
 
 const Login = () => {
   const [usernameOrEmail, setUsernameOrEmail] = useState("");
@@ -29,12 +29,11 @@ const Login = () => {
       console.log("Response dari server:", data);
 
       if (response.ok) {
-        const { token, role, ...user } = data; // Asumsikan response berisi field 'role'
+        const { token, role, ...user } = data;
         localStorage.setItem("token", token);
         login(user);
         console.log("Login berhasil, mengarahkan ke dashboard...");
 
-        // Redirect berdasarkan peran pengguna
         if (role === "admin") {
           navigate("/dashboardadmin");
         } else {
@@ -96,20 +95,20 @@ const Login = () => {
 
               {error && <p className="text-danger">{error}</p>}
 
-              <div className="d-flex justify-content-center mb-3">
-                <Button type="submit" className="btn-login w-50">
+              <div className="d-grid gap-2">
+                <Button type="submit" className="btn-login">
                   Login
                 </Button>
               </div>
             </Form>
 
-            <div className="text-left mb-3">
+            <div className="text-center mb-3">
               <a href="#" className="text-decoration-none text-social">
                 Forgot Password?
               </a>
             </div>
 
-            <div className="text-left mb-3 login-putih">
+            <div className="text-center mb-3 login-putih">
               Don't have an account?{" "}
               <a href="/register" className="text-decoration-none text-social">
                 Register now
@@ -120,21 +119,19 @@ const Login = () => {
               <span className="divider-text login-putih">or</span>
             </div>
 
-            <div className="d-flex justify-content-center mb-2">
-              <Button className="btn-login-social w-50 mb-2">
+            <div className="d-grid gap-2">
+              <Button className="btn-login-social">
                 <img
-                  src="../../public/google.svg"
+                  src="/google.svg" // Ubah path sesuai dengan lokasi gambar
                   alt="Google"
                   className="me-2"
                 />{" "}
                 Sign in with Google
               </Button>
-            </div>
 
-            <div className="d-flex justify-content-center">
-              <Button className="btn-login-social w-50">
+              <Button className="btn-login-social">
                 <img
-                  src="../../public/discord.svg"
+                  src="/discord.svg" // Ubah path sesuai dengan lokasi gambar
                   alt="Discord"
                   className="me-2"
                 />{" "}
@@ -145,7 +142,11 @@ const Login = () => {
         </Card>
       </div>
       <div className="wave-container">
-        <img src="../../public/wavebwh.png" alt="Wave" className="wave-image" />
+        <img
+          src="/wavebwh.png" // Ubah path sesuai dengan lokasi gambar
+          alt="Wave"
+          className="wave-image"
+        />
       </div>
     </div>
   );
