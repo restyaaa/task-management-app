@@ -4,12 +4,12 @@
 }
 
 .card-hover:hover {
-    transform: translateY(-10px);
+    transform: translateY(-2px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .status-not-started {
-    color: #4D4D4D;
+    color: #ff0730;
     font-weight: bold;
 }
 
@@ -48,7 +48,7 @@
     margin: 0;
 }
 
-.dark-mode {
+.dark-mode .component-container{
     background-color: #222;
     color: #fff;
 }

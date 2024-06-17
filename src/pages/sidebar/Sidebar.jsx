@@ -111,7 +111,7 @@ const Sidebar = ({ user }) => {
               </div>
               <Collapse in={openProjects}>
                 <div className="collapse-scroll">
-                  <NavLink to="/home" className="dropdown-item">
+                  <NavLink to="/project" className="dropdown-item">
                     <CDBSidebarMenuItem
                       icon="home"
                       style={{

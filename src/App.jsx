@@ -8,6 +8,7 @@ import AboutUs from "./pages/about/About";
 import ContactUs from "./pages/contact/Contact";
 import Login from "./pages/login/login";
 import Register from "./pages/register/register";
+import ForgotPassword from "./pages/forgotPassword/ForgotPassword";
 import DashboardUser from "./pages/dahsboardUser/DashboardUser";
 import Sidebar from "./pages/sidebar/Sidebar";
 import Settingan from "./pages/settingan/Settingan";
@@ -15,6 +16,7 @@ import DashboardAdmin from "./pages/dashboardAdmin/DashboardAdmin"; // Import ko
 import SidebarAdmin from "./pages/sidebarAdmin/SidebarAdmin"; // Import komponen baru
 import UserList from "./pages/userList/UserList";
 import SettinganAdmin from "./pages/settinganAdmin/SettinganAdmin";
+import Project from "./pages/project/Project";
 import { AuthProvider, AuthContext } from "./context/AuthContext";
 import { ThemeProvider } from "./context/ThemeContext";
 
@@ -31,6 +33,7 @@ function App() {
             </Route>
             <Route path="login" element={<LoginWrapper />} />
             <Route path="register" element={<Register />} />
+            <Route path="forgot-password" element={<ForgotPassword />} />
             <Route
               path="/dashboarduser"
               element={<ProtectedRoute component={DashboardUser} />}
@@ -38,6 +41,10 @@ function App() {
             <Route
               path="/settingan"
               element={<ProtectedRoute component={Settingan} />}
+            />
+            <Route
+              path="/project"
+              element={<ProtectedRoute component={Project} />}
             />
             <Route
               path="/dashboardadmin"

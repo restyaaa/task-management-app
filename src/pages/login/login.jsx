@@ -102,8 +102,8 @@ const Login = () => {
               </div>
             </Form>
 
-            <div className="text-center mb-3">
-              <a href="#" className="text-decoration-none text-social">
+            <div className="text-left mb-3">
+              <a href="/forgot-password" className="text-decoration-none text-social">
                 Forgot Password?
               </a>
             </div>

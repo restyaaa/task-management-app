@@ -1,0 +1,49 @@
+.light-mode .chart-text, 
+.light-mode .chart-title, 
+.light-mode .chart-legend,
+.light-mode .card-hover {
+    color: #000;
+}
+
+.dark-mode .chart-text, 
+.dark-mode .chart-title, 
+.dark-mode .chart-legend {
+    color: #fff;
+}
+
+.dark-mode .card-body-custom {
+    border-radius: 5px;
+}
+
+.dark-mode .card-body-radius {
+    border-radius: 5px;
+}
+
+.card-hover {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-body-custom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-img {
+    width: 80px;
+    height: 80px;
+}
+
+.card-content {
+    flex: 1;
+    margin-left: 15px;
+}
+
+.card-text-custom {
+    margin: 0;
+}

@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
 import 'chart.js/auto';
-import './dashboardUser.css'; // Import custom CSS
+import './dashboardUser.css';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
@@ -17,8 +17,9 @@ const DashboardUser = () => {
     datasets: [
       {
         label: 'Tasks Done',
-        data: [20, 30, 45, 60, 40, 55, 70, 60, 80], // Replace with actual data
-        fill: false,
+        data: [20, 30, 45, 60, 40, 55, 70, 60, 80], // Ganti dengan data sesungguhnya
+        fill: true,
+        backgroundColor: 'rgba(108, 99, 255, 0.2)',
         borderColor: '#6c63ff',
         tension: 0.1,
       },
@@ -55,8 +56,8 @@ const DashboardUser = () => {
                   <div className="card-content">
                     <Card.Title className="fw-bold">Tasks</Card.Title>
                     <Card.Text className="card-text-custom">
-                      <h1>125</h1>
-                      <p>Task</p>
+                      <h1 className="fw-bold">125</h1>
+                      <p className="ms-2">Task</p>
                     </Card.Text>
                   </div>
                 </Card.Body>
@@ -69,8 +70,8 @@ const DashboardUser = () => {
                   <div className="card-content">
                     <Card.Title className="fw-bold">Current Project</Card.Title>
                     <Card.Text className="card-text-custom">
-                      <h1>1 / 3</h1>
-                      <p>You completed over 33% projects</p>
+                      <h1 className="fw-bold">1 / 3</h1>
+                      <p className="ms-2">You completed over 33% projects</p>
                     </Card.Text>
                   </div>
                 </Card.Body>

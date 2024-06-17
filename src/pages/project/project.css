@@ -1,0 +1,49 @@
+.container {
+  margin-top: 20px;
+}
+
+.badge {
+  padding: 0.5em 0.75em;
+}
+
+.table thead th {
+  background-color: #f8f9fa;
+}
+
+.form-select {
+  padding: 0.375em 1.75em 0.375em 0.75em;
+}
+.select-column {
+  width: 50px; /* Atur lebar kolom checkbox */
+}
+
+.table th,
+.table td {
+  vertical-align: middle; /* Menjaga konten di tengah secara vertikal */
+}
+
+.d-flex.justify-content-center {
+  justify-content: center;
+}
+
+.form-check-input:checked {
+  background-color: #57A9CF; /* Warna latar belakang saat checkbox dicentang (bootstrap primary color) */
+  border-color: #57A9CF; /* Warna border saat checkbox dicentang */
+}
+
+.form-check-input:checked::before {
+  color: #fff; /* Warna tanda centang (putih) */
+}
+
+.form-check-input {
+  border-radius: 0.25rem; /* Border radius untuk menyesuaikan dengan gaya Bootstrap */
+}
+.btn-new-task{
+    background-color:#57A9CF ;
+    color: white;
+    font-weight: bolder;
+}
+.btn-new-task:hover{
+    background-color:#63c2eb ;
+    color: white;
+}
